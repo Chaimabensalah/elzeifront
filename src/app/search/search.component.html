@@ -1,0 +1,52 @@
+<body>
+  <app-navigate></app-navigate>
+
+  <section>
+    <div class="container">
+      <input [(ngModel)]="searchTerm" type="text" placeholder="Search..." (keyup)="search()" />
+      <button class="search"></button>
+    </div>
+
+    <!--for demo wrap-->
+    <h1>mes Salaries</h1>
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+          <tr>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Date de Naissance</th>
+            <th>Adresse</th> <!-- Moved 'Adresse' header here -->
+            <th>Matricule</th>
+            <th>Numéro de Sécurité Sociale</th>
+            <th>Date d'Entrée</th>
+            <th>Date de Sortie</th>
+            <th>Emploi</th>
+            <th>Statut</th>
+            <th>Position</th>
+            <th>Coefficient</th>
+          </tr>
+        </thead>
+   
+        <tbody>
+          <tr *ngFor="let salary of salaries" (click)="viewDetails(salary)" [class.selected]="selectedSalary === salary">
+            <td>{{ salary.prenom }}</td>
+            <td>{{ salary.nom }}</td>
+            <td>{{ salary.dateNais }}</td>
+            <td>{{ salary.adresse }}</td> 
+            <td>{{ salary.matricule }}</td>
+            <td>{{ salary.numSS }}</td>
+            <td>{{ salary.dateEntre }}</td>
+            <td>{{ salary.dateSortie }}</td>
+            <td>{{ salary.emploi }}</td>
+            <td>{{ salary.statut }}</td>
+            <td>{{ salary.position }}</td>
+            <td>{{ salary.coefficient }}</td>
+          </tr>  
+        </tbody>
+      </table>
+    </div>
+    
+
+  </section>
+</body>

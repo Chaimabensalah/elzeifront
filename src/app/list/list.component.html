@@ -1,0 +1,19 @@
+<body>
+    <app-navigate></app-navigate>
+    <router-outlet></router-outlet>
+<div class="ag-format-container">
+  <div class="ag-courses_box">
+    <div class="ag-courses_item" *ngFor="let simulateur of simulateurs">
+      <a  class="ag-courses-item_link" (click)="viewSimulateurDetails(simulateur)">
+        <div class="ag-courses-item_bg"></div>       
+        <div class="card" style="width: 18rem;">
+          <ul class="list-group list-group-light">
+            <a class="simulateur-info1">simulateur  {{ simulateur.id }}</a><br>
+            <div class="date">Date:{{ currentDate }}</div>
+          </ul>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+</body>

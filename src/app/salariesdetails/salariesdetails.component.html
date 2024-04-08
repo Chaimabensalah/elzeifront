@@ -1,0 +1,63 @@
+<!-- salariesdetails.component.html -->
+<div class="main-w3layouts wrapper">
+    <h1>Salarie</h1>
+    <div class="main-agileinfo">
+        <div class="agileits-top">
+            <form>
+                <div class="wordpos">
+                    <table>
+                        <tr >
+                            <th><label for="prenom">Prénom:</label></th>
+                            <th><input class="text" type="text"  [value]="selectedSalaries?.prenom" required></th>
+                            <th><label for="nom">Nom:</label></th>
+                            <th><input class="text" type="text"   [value]="selectedSalaries?.nom" required></th>
+                            <th><label for="dateNais">Date de naissance:</label></th>
+                            <th><input class="text" type="text"  [value]="selectedSalaries?.dateNais" required></th>
+                        </tr>
+                        <tr>
+                            <th><label for="adresse">Adresse:</label></th>
+                            <th><input class="text" type="text" [value]="selectedSalaries?.adresse" required></th>
+                            <!-- Add your address inputs here -->
+                        </tr>
+                        <tr>
+                            <th><label for="matricule">Matricule:</label></th>
+                            <th><input class="text" type="text" [value]="selectedSalaries?.matricule" required></th>
+                            <th><label for="numSS">NumSS:</label></th>
+                            <th><input class="text" type="text"  [value]="selectedSalaries?.numSS" required></th>
+                            <th><label for="dateEntre">Date d'entrée:</label></th>
+                            <th><input class="text" type="text"  [value]="selectedSalaries?.dateEntre" required></th>
+                        </tr>
+                        <tr>
+                            <th><label for="dateSortie">Date de sortie:</label></th>
+                            <th><input class="text" type="text"  [value]="selectedSalaries?.dateSortie" required></th>
+                            <th><label for="emploi">Emploi:</label></th>
+                            <th><input class="text" type="text"  [value]="selectedSalaries?.emploi" required></th>
+                            <th><label for="statut">Statut:</label></th>
+                            <th><input class="text" type="text"  [value]="selectedSalaries?.statut" required></th>
+                        </tr>
+                        <tr>
+                            <th><label for="position">Position:</label></th>
+                            <th><input class="text" type="text"  [value]="selectedSalaries?.position" required></th>
+                            <th><label for="coefficient">Coefficient:</label></th>
+                            <th><input class="text" type="text"  [value]="selectedSalaries?.coefficient" required></th>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="login-box">
+                  
+                    <form>                   
+                      <a>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <input type="button" class="button-container" value="update" (click)="updateSalary()" >
+                      </a>
+                    </form>
+                   
+                  </div>    
+            </form>
+        </div>
+    </div>
+</div>
