@@ -35,20 +35,22 @@ export class HomeComponent implements OnInit{
      autresFraisSurFacture:0,
      totalPercuHorsExtra:0,
      medecineDeTravail:0,
-     TaxeDapprentissage :0,
+     taxeDapprentissage :0,
      adessat:0,
-     TaxeCCI:0,
+     taxeCCI:0,
      continuue:0,
      assuranceRespCivile:0,
      complementMutOp1:0,
-     CVAEsurCAgénéré:0,
-     ChargesPatronalesURSSAF:0,
-     ChargesSalariales:0,
-     ChargesPatronalesAnn:0,
+     cvaeSurCAgenere:0,
+     chargesPatronalesURSSAF:0,
+     chargesSalariales:0,
+     chargesPatronalesAnn:0,
 
-    Solde:0,
-    TotalPerçu:0,
-    ExtraPossibleHorsPAS:0,
+    
+
+    solde:0,
+    totalPercu:0,
+    extraPossibleHorsPAS:0,
 
 
    }
@@ -80,22 +82,22 @@ export class HomeComponent implements OnInit{
       SalaireNetHorsPAS: [''],
       FraisRepas: [''],
       FraisKilo: [''],
-      TotalPerçuHorsExtra: [''],
+      totalPercuHorsExtra: [''],
       MedécinedeTravail: [''],
-      TaxeDapprentissage: [''],
+      taxeDapprentissage: [''],
       Adessat: [''],
-      TaxeCCI: [''],
+      taxeCCI: [''],
       AssuranceRespCivile: [''],
       ComplémMutOp1: [''],
-      CVAEsurCAgénéré: [''],
-      ChargesPatronalesURSSAF: [''],
-      ChargesSalariales: [''],
-      ChargesPatronalesAnn: [''],
-      CoûtTotal: [''],
+      cvaeSurCAgenere: [''],
+      chargesPatronalesURSSAF: [''],
+      chargesSalariales: [''],
+      chargesPatronalesAnn: [''],
+      CoutTotal: [''],
       continuue: [''],
-      Solde: [''],
-      TotalPerçu: [''],
-      ExtraPossibleHorsPAS: [''],
+      solde: [''],
+      totalPercu: [''],
+      extraPossibleHorsPAS: [''],
       Autresfraissurfacture: [''],
 
     });
@@ -127,21 +129,21 @@ export class HomeComponent implements OnInit{
     const FraisRepas = this.myForm.get('FraisRepas')?.value;
     const FraisKilo = this.myForm.get('FraisKilo')?.value;
     const Autresfraissurfacture = this.myForm.get('Autresfraissurfacture')?.value;
-    const TotalPerçuHorsExtra = this.myForm.get('TotalPerçuHorsExtra')?.value;
+    const totalPercuHorsExtra = this.myForm.get('totalPercuHorsExtra')?.value;
     const MedécinedeTravail = this.myForm.get('MedécinedeTravail')?.value;
-    const TaxeDapprentissage = this.myForm.get('TaxeDapprentissage')?.value;
+    const taxeDapprentissage = this.myForm.get('taxeDapprentissage')?.value;
 
-    const TaxeCCI = this.myForm.get('TaxeCCI')?.value;
-    const continuue = this.myForm.get('continue')?.value;
+    const taxeCCI = this.myForm.get('taxeCCI')?.value;
+    const continuue = this.myForm.get('continuue')?.value;
     const AssuranceRespCivile = this.myForm.get('AssuranceRespCivile')?.value;
     const ComplémMutOp1 = this.myForm.get('ComplémMutOp1')?.value;
-    const CVAEsurCAgénéré = this.myForm.get('CVAEsurCAgénéré')?.value;
-    const ChargesPatronalesURSSAF = this.myForm.get('ChargesPatronalesURSSAF')?.value;
-    const ChargesSalariales = this.myForm.get('ChargesSalariales')?.value;
-    const ChargesPatronalesAnn = this.myForm.get('ChargesPatronalesAnn')?.value;
-    const CoûtTotal = this.myForm.get('CoûtTotal')?.value;
-    const ExtraPossibleHorsPAS = this.myForm.get('ExtraPossibleHorsPAS')?.value;
-    const Solde = this.myForm.get('Solde')?.value;
+    const cvaeSurCAgenere = this.myForm.get('cvaeSurCAgenere')?.value;
+    const chargesPatronalesURSSAF = this.myForm.get('chargesPatronalesURSSAF')?.value;
+    const chargesSalariales = this.myForm.get('chargesSalariales')?.value;
+    const chargesPatronalesAnn = this.myForm.get('chargesPatronalesAnn')?.value;
+    const CoutTotal = this.myForm.get('CoutTotal')?.value;
+    const extraPossibleHorsPAS = this.myForm.get('extraPossibleHorsPAS')?.value;
+    const solde = this.myForm.get('solde')?.value;
     const Adessat = this.myForm.get('Adessat')?.value;
 
 
@@ -153,7 +155,7 @@ const result3: number = Astreintes * qt2;
 const result4: number = result3 * (1 - (cout / 100));
 const result5: number = Autres * qt3;
 const result6: number = result5 * (1 - (cout / 100));
-const result7: number = result2 + result3 + result6;
+const result7: number = dispo + dispo2 + dispo3;
 
 // outputs1
     this.myForm.get('factureht')?.setValue(result1);
@@ -175,7 +177,7 @@ const result7: number = result2 + result3 + result6;
     const result11: number = 0.01*var1;
     const var6: number = Number(tjm)*210*0.0075/12;
     const var3: number =Number(MedécinedeTravail)+Number(result8)+Number(result9)+Number(result10)+Number(result11)+Number(AssuranceRespCivile)+Number(ComplémMutOp1)+Number(var6);
-    const var4: number = Number(var3)+Number(ChargesSalariales)+Number(ChargesPatronalesURSSAF)+Number(SalaireNetHorsPAS)+Number(FraisRepas)+Number(FraisKilo)+Number(Autresfraissurfacture);
+    const var4: number = Number(var3)+Number(chargesSalariales)+Number(chargesPatronalesURSSAF)+Number(SalaireNetHorsPAS)+Number(FraisRepas)+Number(FraisKilo)+Number(Autresfraissurfacture);
 
 
     const result12: number = Number(result2)-Number(var4);
@@ -184,17 +186,17 @@ const result7: number = result2 + result3 + result6;
 
 // outputs2
     this.myForm.get('SalaireBrut')?.setValue(var1);
-    this.myForm.get('TotalPerçuHorsExtra')?.setValue(var2);
-    this.myForm.get('TaxeDapprentissage')?.setValue(result8);
+    this.myForm.get('totalPercuHorsExtra')?.setValue(var2);
+    this.myForm.get('taxeDapprentissage')?.setValue(result8);
     this.myForm.get('Adessat')?.setValue(result9);
-    this.myForm.get('TaxeCCI')?.setValue(result10);
+    this.myForm.get('taxeCCI')?.setValue(result10);
     this.myForm.get('continuue')?.setValue(result11);
-    this.myForm.get('ChargesPatronalesAnn')?.setValue(var3);
-    this.myForm.get('CVAEsurCAgénéré')?.setValue(var6);
-    this.myForm.get('CoûtTotal')?.setValue(var4);
-    this.myForm.get('Solde')?.setValue(result12);
-    this.myForm.get('ExtraPossibleHorsPAS')?.setValue(var5);
-    this.myForm.get('TotalPerçu')?.setValue(result13);
+    this.myForm.get('chargesPatronalesAnn')?.setValue(var3);
+    this.myForm.get('cvaeSurCAgenere')?.setValue(var6);
+    this.myForm.get('CoutTotal')?.setValue(var4);
+    this.myForm.get('solde')?.setValue(result12);
+    this.myForm.get('extraPossibleHorsPAS')?.setValue(var5);
+    this.myForm.get('totalPercu')?.setValue(result13);
 
   }
 
@@ -223,7 +225,7 @@ save() :void{
        qt3:this.myForm.get('qt3')?.value,
        factureHt3 : this.myForm.get('factureht3')?.value,
        dispo3 :this.myForm.get('dispo3')?.value,
-       CoûtTotal :this.myForm.get('CoûtTotal')?.value,
+       CoutTotal :this.myForm.get('CoutTotal')?.value,
 
 
        brutAnn :this.myForm.get('BrutAnn')?.value ,
@@ -232,24 +234,24 @@ save() :void{
        fraisRepas :this.myForm.get('FraisRepas')?.value,
        fraisKilo :this.myForm.get('FraisKilo')?.value,
        autresFraisSurFacture :this.myForm.get('Autresfraissurfacture')?.value,
-       totalPercuHorsExtra : this.myForm.get('TotalPerçuHorsExtra')?.value,
+       totalPercuHorsExtra : this.myForm.get('totalPercuHorsExtra')?.value,
        medecineDeTravail : this.myForm.get('MedécinedeTravail')?.value,
-       TaxeDapprentissage  :this.myForm.get('TaxeDapprentissage')?.value ,
+       taxeDapprentissage  :this.myForm.get('taxeDapprentissage')?.value ,
        adessat: this.myForm.get('Adessat')?.value,
-       TaxeCCI : this.myForm.get('TaxeCCI')?.value,
-       continuue : this.myForm.get('continue')?.value,
+       taxeCCI : this.myForm.get('taxeCCI')?.value,
+       continuue : this.myForm.get('continuue')?.value,
        assuranceRespCivile :this.myForm.get('AssuranceRespCivile')?.value,
        complementMutOp1 :this.myForm.get('ComplémMutOp1')?.value,
-       CVAEsurCAgénéré :this.myForm.get('CVAEsurCAgénéré')?.value,
-       ChargesPatronalesURSSAF :this.myForm.get('ChargesPatronalesURSSAF')?.value,
-       ChargesSalariales :this.myForm.get('ChargesSalariales')?.value,
-       ChargesPatronalesAnn :this.myForm.get('ChargesPatronalesAnn')?.value,
+       cvaeSurCAgenere :this.myForm.get('cvaeSurCAgenere')?.value,
+       chargesPatronalesURSSAF :this.myForm.get('chargesPatronalesURSSAF')?.value,
+       chargesSalariales :this.myForm.get('chargesSalariales')?.value,
+       chargesPatronalesAnn :this.myForm.get('chargesPatronalesAnn')?.value,
        totalDISPOO :this.myForm.get('totalDISPOO')?.value,
 
 
-       Solde :this.myForm.get('Solde')?.value,
-       TotalPerçu :this.myForm.get('ExtraPossibleHorsPAS')?.value,
-       ExtraPossibleHorsPAS :this.myForm.get('TotalPerçu')?.value,
+       solde :this.myForm.get('solde')?.value,
+       totalPercu :this.myForm.get('totalPercu')?.value,
+       extraPossibleHorsPAS :this.myForm.get('extraPossibleHorsPAS')?.value,
 
     }
 

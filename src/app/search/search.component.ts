@@ -3,6 +3,7 @@ import { Salaries } from '../Models/Salaries';
 import { SalariesService } from '../Services/Salaries.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-search',
@@ -19,7 +20,6 @@ export class SearchComponent {
   searchPrenom: string = ''; // Ajoutez cette propriété pour le prénom
   searchMatricule: string = ''; // Ajoutez cette propriété pour le matricule
   selectedSalary: Salaries | null = null;
-
 
 
   constructor(private salariesService: SalariesService, private router: Router,private activatedRoute: ActivatedRoute,) { }
@@ -45,14 +45,29 @@ export class SearchComponent {
   }
   
 
-
- 
   viewDetails(salarie: Salaries): void {
     this.router.navigate(['salariesdetails', salarie.id]);
   }
 
   selectSalary(salaries: Salaries): void {
     this.selectedSalary = salaries;
+  }
+
+
+
+
+  deleteCompte(id: String) {
+    this.salariesService.delete(id).subscribe(
+      () => {
+        console.log("salaries deleted successfully.");
+        this.loadSalaries();
+      
+        this.router.navigate(['/Salaries']);
+      },
+      (error: HttpErrorResponse) => {
+        console.error("Error deleting salaries:", error);
+      }
+    );
   }
 }
   

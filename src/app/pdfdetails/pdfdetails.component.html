@@ -1,4 +1,6 @@
 <div>
   <h1>Upload PDF</h1>
-  <app-upload-pdf></app-upload-pdf>
+  <input type="file" (change)="onFileSelected($event)">
+  <button (click)="uploadPDF()">Upload</button>
+  <p *ngIf="result">{{ result }}</p>
 </div>

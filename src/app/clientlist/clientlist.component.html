@@ -1,0 +1,37 @@
+<body>
+    <app-navigate></app-navigate>
+  
+    <section>
+      
+  
+      <!--for demo wrap-->
+      <h1>List des Clients</h1>
+      <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <thead>
+            <tr>
+              <th>Libellé</th>
+              <th>num TVA</th>
+              <th>addresse</th>
+              <th>pays</th> 
+            </tr>
+          </thead>
+     
+          <tbody>
+            <tr *ngFor="let client of clients" [class.selected]="selectedClient === client">
+              <td (click)="viewDetails(client)">{{ client.libelle }}</td>
+              <td (click)="viewDetails(client)">{{ client.numtva }}</td>
+              <td (click)="viewDetails(client)">{{ client.address }}</td>
+              <td (click)="viewDetails(client)">{{ client.pays }}</td>
+              <td><i class="material-icons" style="font-size:20px;color:red" (click)="deleteCompte(client.id)">delete</i>
+
+             
+            </tr>  
+          </tbody>
+        </table>
+      </div>
+      
+  
+    </section>
+  </body>
+  

@@ -1,25 +1,23 @@
-
-
-
 h1{
     font-size: 30px;
-    color: #000000;
-    text-transform: uppercase;
+    color: #2c2c2c;
     font-weight: 300;
     text-align: center;
     margin-bottom: 15px;
+    font-family: "HelveticaNeueLT Std Lt Cn", Sans-serif;
   }
   
   table {
     width: 100%;
     table-layout: auto;
     border-collapse: collapse; /* Ajouté pour supprimer la ligne de séparation */
+    
   }
   
   .tbl-header {
     background-color: rgba(255, 255, 255, 0.3);
   }
-  
+   
   .tbl-content { /*transparance*/
     height: 300;
     overflow-x: auto;
@@ -49,13 +47,6 @@ h1{
 
 
 
-
-
-
-
-
-
-
   tbody { /*selectioner une ligne de la table*/
     tr {
       &:hover {
@@ -66,7 +57,6 @@ h1{
       position: relative;
       &:hover {
         &:before {
-          content: "";
           position: absolute;
           left: 0;
           right: 0;
@@ -74,6 +64,7 @@ h1{
           bottom: -9999px;
           background-color: rgba(255,255,255,0.2);
           z-index: -1;
+
         }
       }
     }
@@ -250,7 +241,7 @@ button:hover {
       height: 2px;
       background: white;
       transform: rotate(45deg);
-      transition: all .5s;
+      transition: all .2s;
     }
     &::after {
       content: "";
@@ -264,11 +255,11 @@ button:hover {
       height: 25px;
       border-radius: 50%;
       border: 2px solid white;
-      transition: all .5s;
+      transition: all .2s;
     }
   }
   input {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'HelveticaNeueLT Std Lt Cn', monospace;
     position: absolute;
     margin: auto;
     top: 0;
@@ -282,10 +273,10 @@ button:hover {
      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     background: rgb(20, 220, 47);
     color: white;
-    text-shadow: 0 0 10px rgb(20, 220, 47);
+    text-shadow: 0 0 10px rgb(86, 212, 103);
     padding: 0 80px 0 20px;
     border-radius: 30px;
-    box-shadow: 0 0 25px 0 rgb(20, 220, 47),
+    box-shadow: 0 0 25px 0 rgb(77, 206, 94),
                 0 20px 25px 0 rgba(0, 0, 0, 0.2);
     box-shadow: inset 0 0 25px 0 rgba(0, 0, 0, 0.5);
     transition: all 1s;
@@ -303,7 +294,7 @@ button:hover {
     }
     &:focus ~ .search {
       right: -250px;
-      background: #151515;
+      background: #222222;
       z-index: 6;
       &::before {
         top: 0;
@@ -323,7 +314,7 @@ button:hover {
     }
     &::placeholder {
       color: white;
-      opacity: 0.5;
+      opacity: 0.2;
       font-weight: bolder;
     }
   }

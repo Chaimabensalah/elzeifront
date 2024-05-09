@@ -1,0 +1,44 @@
+<body>
+    <app-navigate></app-navigate>
+  
+    <section>
+      <div class="container">
+        <input [(ngModel)]="searchTerm" type="text" placeholder="Search..." (keyup)="search()" />
+        <button class="search"></button>
+      </div><br>
+  
+      <!--for demo wrap-->
+      <h1>List des CRA</h1>
+      <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>mois</th>
+              <th>nombre de jours</th>
+              <th>montantH</th>
+              <th>montantTTC</th>
+
+       
+            </tr>
+          </thead>
+     
+          <tbody>
+            <tr *ngFor="let cra of cra" (click)="viewDetails(cra)" [class.selected]="selectedCRA === cra">
+              <td>{{ cra.id }}</td> 
+              <td>{{ cra.mois }}</td> 
+              <td>{{ cra.nbjour }}</td> 
+              <td>{{ cra.montantH }}</td> 
+              <td>{{ cra.montantTTC }}</td> 
+       
+
+              
+            </tr>  
+          </tbody>
+        </table>
+      </div>
+      
+  
+    </section>
+  </body>
+  

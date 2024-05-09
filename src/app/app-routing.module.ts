@@ -9,6 +9,15 @@ import { SalariesComponent } from './salaries/salaries.component';
 import { SearchComponent } from './search/search.component';
 import { SalariesdetailsComponent } from './salariesdetails/salariesdetails.component';
 import { PdfdetailsComponent } from './pdfdetails/pdfdetails.component';
+import { ClientComponent } from './client/client.component';
+import { CRAComponent } from './cra/cra.component';
+import { MissionComponent } from './mission/mission.component';
+import { ClientlistComponent } from './clientlist/clientlist.component';
+import { MissionlistComponent } from './missionlist/missionlist.component';
+import { CralistComponent } from './cralist/cralist.component';
+import { ClientdetailsComponent } from './clientdetails/clientdetails.component';
+import { DialogAnimationsExampleDialogComponent } from './dialog-animations-example-dialog/dialog-animations-example-dialog.component';
+
 
 const routes: Routes = [
   {path:"",redirectTo:"login",pathMatch:"full"},
@@ -21,6 +30,15 @@ const routes: Routes = [
   {path:"search",component:SearchComponent},
   {path: "salariesdetails/:id", component: SalariesdetailsComponent},
   {path:"pdfdetails",component:PdfdetailsComponent},
+  {path:"Client",component:ClientComponent},
+  {path:"CRA",component:CRAComponent},
+  {path:"Mission",component:MissionComponent},
+  {path:"clientlist",component:ClientlistComponent},
+  {path:"missionlist",component:MissionlistComponent},
+  {path:"cralist",component:CralistComponent},
+  {path:"clientdetails/:id",component:ClientdetailsComponent},
+  {path:"DialogAnimationsExampleDialog",component:DialogAnimationsExampleDialogComponent},
+
 
 ];
 

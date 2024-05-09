@@ -1,0 +1,89 @@
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { CRA } from '../Models/CRA';
+
+const baseurl = "http://localhost:8080/api/CRA";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CRAService {
+
+  private baseUrl: string = "http://localhost:8080/api/CRA";
+
+  constructor(private http: HttpClient) { }
+  getCRAById(id: number): Observable<CRA> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<CRA>(url);
+  }
+  getCRAS(): Observable<CRA[]> {
+    return this.http.get<CRA[]>(this.baseUrl).pipe(
+      map(response => response)
+    );
+  }  
+
+  create(data: any): Observable<CRA> {
+    return this.http.post<CRA>("http://localhost:8080/api/CRA/save", data).pipe(
+      map(response => response)
+    );
+  }
+
+  update(id: string, data: any): Observable<CRA> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.put<CRA>(url, data, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
+  delete(id: any): Observable<CRA> {
+    return this.http.delete<CRA>(`${this.baseUrl}/${id}`).pipe(
+      map(response => response)
+    );
+  }
+
+  deleteAll(): Observable<CRA> {
+    return this.http.delete<CRA>(this.baseUrl).pipe(
+      map(response => response)
+    );
+  }
+
+  getCRA(id: number): Observable<CRA> {
+    return this.http.get<CRA>(`${this.baseUrl}/${id}`).pipe(
+      map(response => response)
+    )
+  }
+
+
+  getAllCRA(): Observable<CRA[]> {
+    return this.http.get<CRA[]>(`${this.baseUrl}`);
+  }
+ 
+
+  searchCRA(searchTerm: string): Observable<CRA[]> {
+    return this.http.get<CRA[]>(`${this.baseUrl}`).pipe(
+      map(client => {
+        if (!isNaN(+searchTerm)) { // Vérifie si searchTerm est un nombre
+          return client.filter(c => c.montantH === searchTerm);
+        } else if (searchTerm.includes('')) {
+          const searchTermParts = searchTerm.split(' ').filter(part => part.trim() !== ''); // Sépare les parties de searchTerm
+          const searchTermRegex = new RegExp(searchTermParts.join('.*'), 'i'); // Crée une expression régulière pour rechercher le nom ou le prénom composé
+          return client.filter(s => searchTermRegex.test(s.montantH) || searchTermRegex.test(s.montantH));
+        } else {
+          return client.filter(s => s.montantH === searchTerm || s.montantH === searchTerm);
+        }
+      })
+    );
+  }
+
+}
+
+
+
+
+
+
+
+
+

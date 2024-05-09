@@ -22,23 +22,23 @@ export class Simulateur {
   autresFraisSurFacture?: number;
   totalPercuHorsExtra?: number;
   medecineDeTravail?: number;
-  TaxeDapprentissage?: number;
+  taxeDapprentissage?: number;
   adessat?: number;
-  TaxeCCI?: number;
+  taxeCCI?: number;
   continuue?: number;
   assuranceRespCivile?: number;
   complementMutOp1?: number;
-  CVAEsurCAgénéré?: number;
-  ChargesPatronalesURSSAF?: number;
-  ChargesSalariales?: number;
-  ChargesPatronalesAnn?: number;
-  CoûtTotal?: number;
-  Solde?: number;
+  cvaeSurCAgenere?: number;
+  chargesPatronalesURSSAF?: number;
+  chargesSalariales?: number;
+  chargesPatronalesAnn?: number;
+  CoutTotal?: number;
+  solde?: number;
   TotalPerçu?: number
-  ExtraPossibleHorsPAS?: number;
+  extraPossibleHorsPAS?: number;
   coutTotal?: number;
   CVAEsurCAgenere?: number;
-  TotalPercu?: number;
+  totalPercu?: number;
 
   constructor(
     id?: number,
@@ -64,25 +64,26 @@ export class Simulateur {
     autresFraisSurFacture?: number,
     totalPercuHorsExtra?: number,
     medecineDeTravail?: number,
-    TaxeDapprentissage?: number,
+    taxeDapprentissage?: number,
     adessat?: number,
-    TaxeCCI?: number,
+    taxeCCI?: number,
     continuue?: number,
     assuranceRespCivile?: number,
     complementMutOp1?: number,
-    CVAEsurCAgénéré?: number,
-    ChargesPatronalesURSSAF?: number,
-    ChargesSalariales?: number,
-    ChargesPatronalesAnn?: number,
-    CoûtTotal?: number,
-    Solde?: number,
-    TotalPerçu?: number,
-    ExtraPossibleHorsPAS?: number,
+    cvaeSurCAgenere?: number,
+    chargesPatronalesURSSAF?: number,
+    chargesSalariales?: number,
+    chargesPatronalesAnn?: number,
     coutTotal?: number,
+    solde?: number,
+    extraPossibleHorsPAS?: number,
     CVAEsurCAgenere?: number,
-    TotalPercu?: number
+    totalPercu?: number
   ) {
-    this.id = id;
+    this.TotalPerçu = totalPercu;
+    this.CVAEsurCAgenere = CVAEsurCAgenere;
+    this.coutTotal = coutTotal;
+    this.extraPossibleHorsPAS = extraPossibleHorsPAS;
     this.cout = cout;
     this.tjm = tjm;
     this.qt = qt;
@@ -105,16 +106,17 @@ export class Simulateur {
     this.autresFraisSurFacture = autresFraisSurFacture;
     this.totalPercuHorsExtra = totalPercuHorsExtra;
     this.medecineDeTravail = medecineDeTravail;
-    this.TaxeDapprentissage = TaxeDapprentissage;
+    this.taxeDapprentissage = taxeDapprentissage;
     this.adessat = adessat;
-    this.TaxeCCI = TaxeCCI;
+    this.taxeCCI = taxeCCI;
     this.continuue = continuue;
     this.assuranceRespCivile = assuranceRespCivile;
     this.complementMutOp1 = complementMutOp1;
-    this.CVAEsurCAgénéré = CVAEsurCAgénéré;
-    this.ChargesPatronalesURSSAF = ChargesPatronalesURSSAF;
-    this.ChargesSalariales = ChargesSalariales;
-    this.ChargesPatronalesAnn = ChargesPatronalesAnn;
-    this.CoûtTotal = CoûtTotal;
-    this.Solde = Solde;
-    this.TotalPercu = TotalPercu;}}
+    this.cvaeSurCAgenere = cvaeSurCAgenere;
+    this.chargesPatronalesURSSAF = chargesPatronalesURSSAF;
+    this.chargesSalariales = chargesSalariales;
+    this.chargesPatronalesAnn = chargesPatronalesAnn;
+    this.coutTotal = coutTotal;
+    this.solde = solde;
+  
+  }}

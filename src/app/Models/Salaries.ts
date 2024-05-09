@@ -3,7 +3,7 @@ export class Salaries {
     id: string;
     prenom: string;
     nom: string;
-    dateNais: string;
+    dateNaiss: string;
     adresse: string;
     matricule: string;
     numSS: string;
@@ -13,13 +13,16 @@ export class Salaries {
     statut: string;
     position: string;
     coefficient: string;
+    pays: string;
+
  
   
     constructor(
       id: string,
+      pays: string,
       prenom: string,
       nom: string,
-      dateNais: string,
+      dateNaiss: string,
       adresse: string,
       matricule: string,
       numSS: string,
@@ -31,9 +34,10 @@ export class Salaries {
       coefficient: string
     ) {
       this.id = id;
+      this.pays = pays;
       this.prenom = prenom;
       this.nom = nom;
-      this.dateNais = dateNais;
+      this.dateNaiss = dateNaiss;
       this.adresse = adresse;
       this.matricule = matricule;
       this.numSS = numSS;

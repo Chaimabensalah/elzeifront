@@ -1,0 +1,78 @@
+
+  <body>
+  <app-navigate></app-navigate>
+<br>
+  <form [formGroup]="myForm" class='myfor'>
+  
+
+<div class="login-wrap1">
+  <div class="login-html">
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Mission</label>
+    <div class="login-form">
+<br><br>
+
+<label class="label" for="codeMission">Code Mission:</label>    
+<div class="gray-input">
+  <div style="display: inline-block; width: 100%;">{{ myForm.get('codeMission')?.value }} {{ myForm.get('datedebut')?.value }}</div>
+
+</div>
+<br>
+<tr>
+  <td>
+    <div class="group">
+    <label class="label" for="datedebut">Date de début:</label>
+    <input class="input" type="date" id="datedebut" name="datedebut" formControlName="datedebut" required>
+    </div> 
+  </td>
+
+  <td>
+    <div class="group">
+    <label class="label" for="datefin">Date de fin:</label>
+    <input class="input" type="date" id="datefin" name="datefin" formControlName="datefin" required>
+    </div>
+  </td>
+</tr>
+
+<br>
+<tr>
+  
+    <div class="group">
+       <label class="label" for="tjm">TJM:</label>
+       <input class="input" type="text" id="tjm" name="tjm" formControlName="tjm" required>
+    </div>
+  
+</tr>
+<br><br>
+<tr>
+  
+  <label class="label" class="form-label" for="clientid"> Client : </label>
+  <select class="input" id="clientid" class="form-input" formControlName="clientid" (change)="fillCode()" required>         
+    <option value="all">Toutes les Clients</option>
+    <option *ngFor="let client of Clients" [value]="client.id"  [value]="client.libelle">{{ client.libelle }}</option>
+</select>
+  
+
+
+
+
+       <label class="label" class="form-label" for="salariesid"> Salariés : </label>
+        <select class="input" id="salariesid" class="form-input" formControlName="salariesid" (change)="fillCode()" required>         
+      <option value="all">Toutes les Salariés</option>
+      <option *ngFor="let salaries of Salariess" [value]="salaries.id" [value]="salaries.nom" >{{ salaries.nom }} - {{ salaries.prenom }}
+      </option>
+    </select>
+  
+  </tr>
+    <br><br>
+  <div class="group">
+    <input class="input" type="button" class="button" value="Sauvegarder" (click)="save()" (click)="fillCode()" routerLink="/missionlist">
+
+  </div>
+  </div>
+</div>
+</div>
+
+</form>
+</body>
+
+  

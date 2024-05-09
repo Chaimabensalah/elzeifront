@@ -11,21 +11,22 @@
     <div class="login-form">
 
 
-
+      <table border="0" width="1200">
         <div class="group">
           <div class="container2">
           <td>
             <label for="cout" class="label">Coût de gestion</label>
             <div class="input-group">
-            <input name="cout" type="number" class="input" min="0" max="100" formControlName="cout" >
+            <input name="cout" type="text" class="input" min="0" max="100" formControlName="cout" >
             <span class="percent-symbol">%</span>
           </div>
               </td>
-            </div>
+            </div> 
             </div>
             <br>
         <div class="group">
           <div class="container2">
+           
             <td>
           <label for="tjm" class="label">TJM</label>
           <input name="tjm" type="text" class="input" formControlName="tjm" (ngModelChange)="submitForm()">
@@ -93,6 +94,7 @@
         </div>
         </div>
            <br>
+          </table>
       </div>
       </div>
       </div>
@@ -100,13 +102,6 @@
 
 <br>
 <br>
-
-
-
-
-
-
-
 
 
 
@@ -116,8 +111,10 @@
     <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Salaire et charge</label>
 
     <div class="login-form">
+      <table  border="0" width="1200" >
 
     <h2>Salaire et Frais</h2>
+
       <div class="group">
         <div class="container">
           <td>
@@ -145,14 +142,15 @@
             <input id="Autresfraissurfacture" type="text" class="input" formControlName="Autresfraissurfacture" (ngModelChange)="submitForm()">
               </td>
           <td>
-        <label for="TotalPerçuHorsExtra" class="label">Total Perçu Hors Extra</label>
-        <input id="TotalPerçuHorsExtra" type="text" class="input" formControlName="TotalPerçuHorsExtra" readonly (ngModelChange)="submitForm()">
+        <label for="totalPercuHorsExtra" class="label">Total Perçu Hors Extra</label>
+        <input id="totalPercuHorsExtra" type="text" class="input" formControlName="totalPercuHorsExtra" readonly (ngModelChange)="submitForm()">
           </td>
       </div>
       </div>
 
 
         <h2>Charge et Annexes</h2>
+        <table border="0" width="400" style="margin-left: 2%;">
 
                 <tr >
                     <td><label for="MedécinedeTravail">Medécine de Travail</label></td>
@@ -160,16 +158,16 @@
                 </tr>
 
                 <tr>
-                    <td><label for="TaxeDapprentissage">Taxe D'apprentissage</label></td>
-                    <td><input class='tabb' type="text" id="TaxeDapprentissage" name="TaxeDapprentissage" formControlName="TaxeDapprentissage" readonly ></td>
+                    <td><label for="taxeDapprentissage">Taxe D'apprentissage</label></td>
+                    <td><input class='tabb' type="text" id="taxeDapprentissage" name="taxeDapprentissage" formControlName="taxeDapprentissage" readonly ></td>
                 </tr>
                 <tr>
                     <td><label for="Adessat">Adessat</label></td>
                     <td><input class='tabb' type="text" id="Adessat" name="Adessat" formControlName="Adessat"readonly></td>
                 </tr>
                 <tr>
-                  <td><label for="TaxeCCI">Taxe CCI</label></td>
-                  <td><input class='tabb' type="text" id="TaxeCCI" name="TaxeCCI" formControlName="TaxeCCI"readonly ></td>
+                  <td><label for="taxeCCI">Taxe CCI</label></td>
+                  <td><input class='tabb' type="text" id="taxeCCI" name="taxeCCI" formControlName="taxeCCI"readonly ></td>
               </tr>
               <tr>
                 <td><label for="continuue">continue</label></td>
@@ -184,9 +182,10 @@
               <td><input class='tabb' type="text" id="ComplémMutOp1" name="FraisKilo" formControlName="ComplémMutOp1"(ngModelChange)="submitForm()"></td>
           </tr>
                 <tr>
-                    <td><label for="AutresCVAEsurCAgénéréfraissurfactures">CVAE sur CA généré (Prorata)</label></td>
-                    <td><input class='tabb' type="text" id="CVAEsurCAgénéré" name="CVAEsurCAgénéré" formControlName="CVAEsurCAgénéré" readonly ></td>
+                    <td><label for="cvaeSurCAgenere">CVAE sur CA généré (Prorata)</label></td>
+                    <td><input class='tabb' type="text" id="cvaeSurCAgenere" name="cvaeSurCAgenere" formControlName="cvaeSurCAgenere" readonly ></td>
                 </tr>
+                </table>
       <br>
 
 
@@ -194,30 +193,30 @@
      <div class="group">
         <div class="container">
             <td>
-          <label for="user" class="label">Charges Patronales URSSAF</label>
-          <input id="user" type="text" class="input" formControlName="ChargesPatronalesURSSAF" (ngModelChange)="submitForm()">
+          <label for="chargesPatronalesURSSAF" class="label">Charges Patronales URSSAF</label>
+          <input id="user" type="text" class="input"  id="chargesPatronalesURSSAF" name="chargesPatronalesURSSAF" formControlName="chargesPatronalesURSSAF" (ngModelChange)="submitForm()">
             </td>
             <td>
-          <label for="ChargesSalariales" class="label">Charges Salariales</label>
-          <input id="ChargesSalariales" type="text" class="input" formControlName="ChargesSalariales"(ngModelChange)="submitForm()">
+          <label for="chargesSalariales" class="label">Charges Salariales</label>
+          <input id="chargesSalariales" type="text" class="input" formControlName="chargesSalariales"(ngModelChange)="submitForm()">
             </td>
             <td>
-              <label for="ChargesPatronalesAnn" class="label">Charges
+              <label for="chargesPatronalesAnn" class="label">Charges
                 Patronales Ann
                 (TA, ADESSAT, FP, MT, DADS, RC..)</label>
-              <input id="ChargesPatronalesAnn" type="text" class="input" formControlName="ChargesPatronalesAnn"readonly >
+              <input id="chargesPatronalesAnn" type="text" class="input" formControlName="chargesPatronalesAnn"readonly >
             </td>
         </div>
         </div><br>
       <div class="group">
         <div class="container">
         <td>
-          <label for="CoûtTotal" class="label">Coût Total</label>
-          <input id="CoûtTotal" type="text" class="input" formControlName="CoûtTotal"readonly >
+          <label for="CoutTotal" class="label">Coût Total</label>
+          <input id="CoutTotal" type="text" class="input" formControlName="CoutTotal"readonly >
         </td>
       </div>
     </div>
-
+  </table>
 </div>
 </div>
 </div>
@@ -231,32 +230,36 @@
 
 
 
+
 <div class="login-wrap3">
   <div class="login-html">
     <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"></label>
     <div class="login-form">
 
+      <table  border="0"  width="1200">
 
         <div class="group">
           <div class="container">
             <td>
-          <label for="Solde" class="label">Solde</label>
-          <input id="Solde" type="text" class="input" formControlName="Solde"readonly>
+          <label for="solde" class="label">solde</label>
+          <input id="solde" type="text" class="input" formControlName="solde"readonly>
             </td>
             <td>
-          <label for="TotalPerçu" class="label">TotalPerçu</label>
-          <input id="TotalPerçu" type="text" class="input" formControlName="TotalPerçu"readonly >
+          <label for="totalPercu" class="label">totalPercu</label>
+          <input id="totalPercu" type="text" class="input" formControlName="totalPercu"readonly >
             </td>
         </div>
         </div>
         <div class="group">
           <div class="container">
             <td>
-          <label for="useExtraPossibleHorsPASr" class="label">Extra Possible Hors PAS</label>
-          <input id="ExtraPossibleHorsPAS" type="text" class="input" formControlName="ExtraPossibleHorsPAS"readonly >
+          <label for="extraPossibleHorsPAS" class="label">Extra Possible Hors PAS</label>
+          <input id="extraPossibleHorsPAS" type="text" class="input" formControlName="extraPossibleHorsPAS"readonly >
             </td>
         </div>
         </div> <br>
+      </table>
+
         <div class="group">
           <div class="pos">
           <br>
@@ -269,6 +272,8 @@
 
 </div>
 </div>
+
+
 </div>
 
 </form>

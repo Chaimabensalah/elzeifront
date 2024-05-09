@@ -1,0 +1,124 @@
+
+<body>
+  <app-navigate></app-navigate>
+<br>
+<form [formGroup]="myForm" class='myfor'>
+
+
+
+  <div class="login-wrap1">
+    <div class="login-html">
+      <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">CRA</label>
+      <div class="login-form">
+<br><br>
+<tr>
+  <td>
+          <label class="label" class="form-label" for="missionid">Mission : </label>
+          <select id="missionid" class="form-input" formControlName="missionid" required>         
+            <!-- Autres options pour les classes -->
+            <option value="all">Toutes les missions</option>
+            <option *ngFor="let mission of MissionS" [value]="mission.id">{{ mission.id }} - {{ mission.tjm }}
+          </option>
+          </select><br><br>
+        </td>
+      <td>
+         <label   for="tjm">TJM:</label><br>       
+            <div class="gray-input">
+              <div class="text-box">           
+                <div class="text-area">
+                  <tr>               
+                  <output formControlName="tjm">{{ selectedMission?.tjm }}</output><br>
+                </tr>
+              </div>
+            </div>
+          </div>
+        </td>
+        </tr>  
+
+
+
+<tr>
+  <td>
+         <label   for="tjm">Salaries:</label><br>     
+         <div class="gray-input">
+           <div class="text-box">           
+             <div class="text-area">
+               <tr>               
+               <output formControlName="Salaries">{{ selectedMission?.salariesid }}</output><br>
+             </tr>
+           </div>
+         </div>
+       </div><br>
+      </td>
+    <td>
+       <label   for="tjm">Client:</label><br>    
+       <div class="gray-input">
+         <div class="text-box">           
+           <div class="text-area">
+             <tr>               
+             <output formControlName="Client">{{ selectedMission?.clientid }}</output><br>
+           </tr>
+         </div>
+       </div>
+     </div>
+    </td>
+  
+    </tr>
+    <tr>
+      <td>
+          <div class="group">
+             <label  class="label"  for="mois">Mois:</label>
+             <input  class="input" type="month" id="mois" name="mois" formControlName="mois" required>
+          </div>       
+        </td>
+          <td>
+          <div class="group">
+            <label  class="label" for="nbjour">Nombre de jours:</label>
+            <input class="input"  type="text" id="nbjour" name="nbjour" formControlName="nbjour" required><br>
+          </div>
+        </td>
+
+        </tr>
+
+
+
+
+
+
+
+        <tr>   
+          <td>
+                <div class="group">
+            <label class="label" for="montantH">montantH</label>
+            <input class="input" type="text" id="montantH" name="montantH" formControlName="montantH">
+          </div>
+        </td>
+
+
+
+      <td>
+          <div class="group">
+              <label class="label" for="montantTTC">montantTTC</label>
+              <input class="input" type="text" id="montantTTC" name="montantTTC" formControlName="montantTTC" required>
+          </div>	
+        </td>
+      </tr>
+
+
+
+
+
+
+
+        <div class="group">
+            <input class="input" type="submit" class="button" value="Sauvegarder" (click)="save()" routerLink="/cralist">
+          </div>
+     
+        </div>
+      </div>
+    </div>
+
+  
+
+</form>
+</body>

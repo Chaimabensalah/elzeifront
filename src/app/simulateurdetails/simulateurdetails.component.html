@@ -15,7 +15,7 @@
           <td>
             <label for="cout" class="label">Coût de gestion</label>
             <div class="input-group">
-            <input name="cout" type="number" class="input"  id="cout" min="0" max="100" [value]="selectedSimulateur?.cout" disabled >
+            <input name="cout" type="" class="input"  id="cout" min="0" max="100" [value]="selectedSimulateur?.cout" disabled >
             <span class="percent-symbol">%</span>
           </div>
           
@@ -144,8 +144,8 @@
             <input id="Autresfraissurfacture" type="text" class="input" [value]="selectedSimulateur?.autresFraisSurFacture" disabled>
               </td>
           <td>
-        <label for="TotalPerçuHorsExtra" class="label">Total Perçu Hors Extra</label>
-        <input id="TotalPerçuHorsExtra" type="text" class="input" [value]="selectedSimulateur?.totalPercuHorsExtra" disabled>
+        <label for="totalPercuHorsExtra" class="label">Total Perçu Hors Extra</label>
+        <input id="totalPercuHorsExtra" type="text" class="input" [value]="selectedSimulateur?.totalPercuHorsExtra" disabled>
           </td>
       </div>
       </div>
@@ -159,16 +159,16 @@
                 </tr>
 
                 <tr>
-                    <td><label for="TaxeDapprentissage">Taxe D'apprentissage</label></td>
-                    <td><input class='tabb' type="text" id="TaxeDapprentissage" name="TaxeDapprentissage" [value]="selectedSimulateur?.TaxeDapprentissage" disabled ></td>
+                    <td><label for="taxeDapprentissage">Taxe D'apprentissage</label></td>
+                    <td><input class='tabb' type="text" id="taxeDapprentissage" name="taxeDapprentissage" [value]="selectedSimulateur?.taxeDapprentissage" disabled ></td>
                 </tr>
                 <tr>
                     <td><label for="Adessat">Adessat</label></td>
                     <td><input class='tabb' type="text" id="Adessat" name="Adessat" [value]="selectedSimulateur?.adessat" disabled></td>
                 </tr>
                 <tr>
-                  <td><label for="TaxeCCI">Taxe CCI</label></td>
-                  <td><input class='tabb' type="text" id="TaxeCCI" name="TaxeCCI" [value]="selectedSimulateur?.TaxeCCI" disabled ></td>
+                  <td><label for="taxeCCI">Taxe CCI</label></td>
+                  <td><input class='tabb' type="text" id="taxeCCI" name="taxeCCI" [value]="selectedSimulateur?.taxeCCI" disabled ></td>
               </tr>
               <tr>
                 <td><label for="continuue">continue</label></td>
@@ -183,8 +183,8 @@
               <td><input class='tabb' type="text" id="ComplémMutOp1" name="FraisKilo" [value]="selectedSimulateur?.complementMutOp1" disabled></td>
           </tr>
                 <tr>
-                    <td><label for="AutresCVAEsurCAgénéréfraissurfactures">CVAE sur CA généré (Prorata)</label></td>
-                    <td><input class='tabb' type="text" id="CVAEsurCAgénéré" name="CVAEsurCAgénéré" [value]="selectedSimulateur?.CVAEsurCAgenere" disabled ></td>
+                    <td><label for="cvaeSurCAgenere">CVAE sur CA généré (Prorata)</label></td>
+                    <td><input class='tabb' type="text" id="cvaeSurCAgenere" name="cvaeSurCAgenere" [value]="selectedSimulateur?.cvaeSurCAgenere" disabled ></td>
                 </tr>
       <br>
 
@@ -193,26 +193,26 @@
      <div class="group">
         <div class="container">
             <td>
-          <label for="ChargesPatronalesURSSAF" class="label">Charges Patronales URSSAF</label>
-          <input id="ChargesPatronalesURSSAF" type="text" class="input" [value]="selectedSimulateur?.ChargesPatronalesURSSAF" disabled>
+          <label for="chargesPatronalesURSSAF" class="label">Charges Patronales URSSAF</label>
+          <input id="chargesPatronalesURSSAF" type="text" id="chargesPatronalesURSSAF" name="chargesPatronalesURSSAF" class="input" [value]="selectedSimulateur?.chargesPatronalesURSSAF" disabled>
             </td>
             <td>
-          <label for="ChargesSalariales" class="label">Charges Salariales</label>
-          <input id="ChargesSalariales" type="text" class="input" [value]="selectedSimulateur?.ChargesSalariales" disabled>
+          <label for="chargesSalariales" class="label">Charges Salariales</label>
+          <input id="chargesSalariales" type="text" class="input" [value]="selectedSimulateur?.chargesSalariales" disabled>
             </td>
             <td>
-              <label for="ChargesPatronalesAnn" class="label">Charges
+              <label for="chargesPatronalesAnn" class="label">Charges
                 Patronales Ann
                 (TA, ADESSAT, FP, MT, DADS, RC..)</label>
-              <input id="ChargesPatronalesAnn" type="text" class="input" [value]="selectedSimulateur?.ChargesPatronalesAnn" disabled >
+              <input id="chargesPatronalesAnn" type="text" class="input" [value]="selectedSimulateur?.chargesPatronalesAnn" disabled >
             </td>
         </div>
         </div><br>
       <div class="group">
         <div class="container">
         <td>
-          <label for="CoûtTotal" class="label">Coût Total</label>
-          <input id="CoûtTotal" type="text" class="input" [value]="selectedSimulateur?.coutTotal" disabled >
+          <label for="CoutTotal" class="label">Coût Total</label>
+          <input id="CoutTotal" type="text" class="input" [value]="selectedSimulateur?.coutTotal" disabled >
         </td>
       </div>
     </div>
@@ -227,7 +227,7 @@
 
 
 
-
+ 
 
 
 <div class="login-wrap3">
@@ -239,20 +239,20 @@
         <div class="group">
           <div class="container">
             <td>
-          <label for="Solde" class="label">Solde</label>
-          <input id="Solde" type="text" class="input" [value]="selectedSimulateur?.Solde" disabled>
+          <label for="solde" class="label">solde</label>
+          <input id="solde" type="text" class="input" [value]="selectedSimulateur?.solde" disabled>
             </td>
             <td>
-          <label for="TotalPerçu" class="label">TotalPerçu</label>
-          <input id="TotalPerçu" type="text" class="input" [value]="selectedSimulateur?.TotalPercu" disabled>
+          <label for="totalPercu" class="label">totalPercu</label>
+          <input id="totalPercu" type="text" class="input" [value]="selectedSimulateur?.totalPercu" disabled>
             </td>
         </div>
         </div>
         <div class="group">
           <div class="container">
             <td>
-          <label for="useExtraPossibleHorsPASr" class="label">Extra Possible Hors PAS</label>
-          <input id="ExtraPossibleHorsPAS" type="text" class="input" [value]="selectedSimulateur?.ExtraPossibleHorsPAS" disabled >
+          <label for="extraPossibleHorsPAS" class="label">Extra Possible Hors PAS</label>
+          <input id="extraPossibleHorsPAS" type="text" class="input" [value]="selectedSimulateur?.extraPossibleHorsPAS" disabled >
             </td>
         </div>
         </div> <br>
@@ -263,10 +263,15 @@
           <div class="pos">
           <br>     
           <tr>
-          <button type="submit" class="button"  (click)="exportexcel()">Excel</button>
+          <button type="submit" class="button"  (click)="exportexcel()" >Excel</button>
+
+
+
           </tr> 
+
+
         </div>
-        </div>
+        </div> 
         </div>
 
 </div>

@@ -11,6 +11,8 @@ const baseurl = "http://localhost:8080/api/salaries";
 export class SalariesService {
 
   private baseUrl: string = "http://localhost:8080/api/salaries";
+  private baseUrl2: string = "http://localhost:8080/api/salaries/update";
+
 
   constructor(private http: HttpClient) { }
   getSalariesById(id: number): Observable<Salaries> {
@@ -21,23 +23,23 @@ export class SalariesService {
     return this.http.get<Salaries[]>(this.baseUrl).pipe(
       map(response => response)
     );
-  }
+  }  
 
   create(data: any): Observable<Salaries> {
-    return this.http.post<Salaries>("http://localhost:8080/api/salaries/save", data).pipe(
+    return this.http.post<Salaries>(`${this.baseUrl}/save`, data).pipe(
       map(response => response)
     );
   }
 
   update(id: string, data: any): Observable<Salaries> {
-    const url = `${this.baseUrl}/${id}`;
+    const url = `${this.baseUrl2}/${id}`;
     return this.http.put<Salaries>(url, data, {
       headers: { 'Content-Type': 'application/json' }
     });
   }
 
-  delete(id: any): Observable<Salaries> {
-    return this.http.delete<Salaries>(`${this.baseUrl}/${id}`).pipe(
+  delete(id: String): Observable<Salaries> {
+    return this.http.delete<Salaries>(`${this.baseUrl}/deletesalarie/${id}`).pipe(
       map(response => response)
     );
   }
@@ -49,20 +51,16 @@ export class SalariesService {
   }
 
   getSalaries(id: number): Observable<Salaries> {
-    return this.http.get<Salaries>(`${this.baseUrl}/${id}`).pipe(
+    return this.http.get<Salaries>("http://localhost:8080/api/salaries/save").pipe(
       map(response => response)
     )
   }
 
 
-
-
-
-
-
   getAllSalaries(): Observable<Salaries[]> {
     return this.http.get<Salaries[]>(`${this.baseUrl}`);
   }
+  
   searchSalaries(searchTerm: string): Observable<Salaries[]> {
     return this.http.get<Salaries[]>(`${this.baseUrl}`).pipe(
       map(salaries => {
@@ -97,6 +95,8 @@ export class SalariesService {
   uploadFile(formData: FormData) {
     return this.http.post<any>('http://localhost:8080/api/uploadPDF', formData);
   }
+
+
 }
 
 

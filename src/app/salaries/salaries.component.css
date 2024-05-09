@@ -1,363 +1,238 @@
-.login-box form a {
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #7ed957;
-  font-size: 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  transition: .5s;
-  margin-top: 40px;
-  letter-spacing: 4px
-}
-
-.login-box a:hover {
-  background: #7ed957;
-  color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #7ed957,
-              0 0 25px #7ed957,
-              0 0 50px #7ed957,
-              0 0 100px #7ed957;
-}
-
-.login-box a span {
-  position: absolute;
-  display: block;
-}
-
-.login-box a span:nth-child(1) {
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #7ed957);
-  animation: btn-anim1 1s linear infinite;
-}
-
-@keyframes btn-anim1 {
-  0% {
-    left: -100%;
-  }
-  50%,100% {
-    left: 100%;
-  }
-}
-
-.login-box a span:nth-child(2) {
-  top: -100%;
-  right: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent, #7ed957);
-  animation: btn-anim2 1s linear infinite;
-  animation-delay: .25s
-}
-
-@keyframes btn-anim2 {
-  0% {
-    top: -100%;
-  }
-  50%,100% {
-    top: 100%;
-  }
-}
-
-.login-box a span:nth-child(3) {
-  bottom: 0;
-  right: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(270deg, transparent, #7ed957);
-  animation: btn-anim3 1s linear infinite;
-  animation-delay: .5s
-}
-
-@keyframes btn-anim3 {
-  0% {
-    right: -100%;
-  }
-  50%,100% {
-    right: 100%;
-  }
-}
-
-.login-box a span:nth-child(4) {
-  bottom: -100%;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(360deg, transparent, #7ed957);
-  animation: btn-anim4 1s linear infinite;
-  animation-delay: .75s
-}
-
-@keyframes btn-anim4 {
-  0% {
-    bottom: -100%;
-  }
-  50%,100% {
-    bottom: 100%;
-  }
-}
-
-
-
-
-  
-
-
-
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-ol, ul {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after, q:before, q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  justify-content: center; /* Horizontally center the input elements */
-  align-items: center; /* Vertically center the input elements */
-  height: 50vh; /* Set a height to the container to make it full height */
-
-}
-
-/*-- start editing from here --*/
-a {
-  text-decoration: none;
-}
-
-.txt-rt {
-  text-align: right;
-}
-
-/* text align right */
-.txt-lt {
-  text-align: left;
-}
-
-/* text align left */
-.txt-center {
-  text-align: center;
-}
-
-/* text align center */
-.float-rt {
-  float: right;
-}
-
-/* float right */
-.float-lt {
-  float: left;
-}
-
-/* float left */
-.clear {
-  clear: both;
-}
-
-/* clear float */
-.pos-relative {
-  position: relative;
-}
-
-/* Position Relative */
-.pos-absolute {
-  position: absolute;
-}
-
-/* Position Absolute */
-.vertical-base {
-  vertical-align: baseline;
-}
-
-/* vertical align baseline */
-.vertical-top {
-  vertical-align: top;
-}
-
-/* vertical align top */
-nav.vertical ul li {
-  display: block;
-}
-
-/* vertical menu */
-nav.horizontal ul li {
-  display: inline-block;
-}
-
-/* horizontal menu */
-img {
-  max-width: 100%;
-}
-
-/*-- end reset --*/
 body {
-  background-size: cover;
-  background-attachment: fixed;
-  font-family: 'Roboto', sans-serif;  
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  color: white;
-  margin: 0;
-  isolation: isolate;
-  gap: 1rem;
-  padding: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr));
-  background: url('../../assets/elevated-view-businesspeople-analyzing-graph-desk.jpg') no-repeat center center fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  animation: animate-bg 50s infinite linear;
-}
-
-@keyframes animate-bg {
-  from { background-size: 100%; background-position: 0% 0%; }
-  50% { background-size: 120%; background-position: 0% 20% }
-  to { background-size: 100%; background-position: 0% 0%; }
-}
+	background-image: radial-gradient(at 300px 300px, rgba(60, 201, 95, 0.01) 0, #E9FFDB 80%), url('../../assets/salaries2.jpg');
+	animation: animate-bg 70s infinite linear;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	height: 100vh;
+	overflow-y: auto;
+  }
   
-
-
-* {
-  box-sizing: border-box;
-}
-
-
-h1 {
-  font-size: 3em;
-  text-align: center;
-  color: #000000;
-  font-weight: 100;
-  text-transform: capitalize;
-  letter-spacing: 4px;
-  font-family: 'Roboto', sans-serif;
-}
-
-/*-- main --*/
-.main-w3layouts {
-  padding: 0em 0 5em;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-.main-agileinfo {
-  width: 50%;
-  padding: 0%;
-  margin: 3em auto;
-  background: rgba(0, 0, 0, 0.1);
-  background-size: cover;
-  --border-radius: 5rem;
-	width: 100%;
-	aspect-ratio: 3;
+  @keyframes animate-bg {
+	from {
+	  background-size: 100%;
+	  background-position: 0% 0%;
+	}
+	50% {
+	  background-size: 120%;
+	  background-position: 0% 20%;
+	}
+	to {
+	  background-size: 100%;
+	  background-position: 0% 0%;
+	}
+  }
+  
+  *,
+  *:after,
+  *:before {
+	box-sizing: border-box;
+  }
+  
+  .clearfix:after,
+  .clearfix:before {
+	content: '';
+  }
+  
+  .clearfix:after {
+	clear: both;
+	display: block;
+  }
+  
+  a {
+	color: inherit;
+	text-decoration: none;
+  }
+  
+  /*container*/
+  .login-html {
+	top: 70%;
+	right: 0%;
+	width: 270%;
+	height: 220%;
+	bottom: 20%;
 	position: relative;
-	border-radius: var(--border-radius);
-	backdrop-filter: blur(1rem);
-&:after {
-		content: "";
-		position: absolute;
-		inset: 0;
-		border-radius: var(--border-radius);
-		z-index: -1;
-		background-image: linear-gradient(122.12deg, #5da92f 0%, #9bd46a 100%);
-		--b: 0.5;
-		filter: brightness(var(--b));
-		transition: all calc(1s / 16 * 4) ease-in-out;
-
-		--border: 4;
-		--alpha: 0;
-		--gradient: linear-gradient(122.12deg, #5da92f 0%, #9bd46a 100%);
-		--bg-size: calc(100% + (2px * var(--border)));
-		background: var(--gradient) center center / var(--bg-size) var(--bg-size);
-		border: calc(var(--border) * 1px) solid transparent;
-		mask: linear-gradient(
-				hsl(0 0% 100% / var(--alpha)),
-				hsl(0 0% 100% / var(--alpha))
-			),
-			linear-gradient(hsl(0 0% 100%), hsl(0 0% 100%));
-		mask-clip: padding-box, border-box;
-		mask-composite: intersect;
-	}
-
-	&:hover {
-		&:after {
-			--b: 1;
-			isolation: isolate;
-		}
-	}
-}
-
-
-
-.agileits-top {
-  padding: 3em;
-}
-
-input {  
-  font-size: 0.9em;
-  color: #fff;
-  font-weight: 100;
-  width: 94.5%;
-  display: block;
-  border: none;
-  padding: 0.8em;
-  border: solid 1px rgba(0, 0, 0, 0.47);
-  -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #000000 4%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #000000 4%);
-  background-position: -800px 0;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  color: #000000;
-  font-family: 'Roboto', sans-serif;
-}
-
-input.email, input.text.w3lpass {
-  margin: 2em 0;
-}
-
-.text:focus, .text:valid {
-  box-shadow: none;
-  outline: none;
-  background-position: 0 0;
-}
-
-.text:focus::-webkit-input-placeholder, .text:valid::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: .9em;
-  -webkit-transform: translateY(-30px);
-  -moz-transform: translateY(-30px);
-  -o-transform: translateY(-30px);
-  -ms-transform: translateY(-30px);
-  transform: translateY(-30px);
-  visibility: visible !important;
-}
-
-th {
-  width: 5%; /* Adjust the width as needed */
-}
-
-.button-container {
-  display: flex; /* Use flexbox layout */
-  justify-content: flex-start; /* Align items to the start (left) */
-  text-align: left;
-}
-      
+	padding: 65px 90px 90px 90px;
+	border-radius: 15px;
+	margin: auto;
+	max-width: 800px;
+	min-height: 600px;
+	background-size: 100%;
+	background-color: rgba(66, 63, 63, 0.3); /* Applique une couleur de fond transparente */
+  }
+  
+  .login-html .sign-in-htm,
+  .login-html .sign-up-htm {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: absolute;
+	transform: rotateY(180deg);
+	backface-visibility: hidden;
+	transition: all .4s linear;
+  }
+  
+  .login-html .sign-in,
+  .login-html .sign-up,
+  .login-form .group .check {
+	display: none;
+  }
+  
+  .login-html .tab,
+  .login-form .group .label,
+  .login-form .group .button {
+	font-family: "HelveticaNeueLT Std Lt Cn", Sans-serif;
+  }
+  
+  .login-html .tab {
+	font-size: 22px;
+	margin-right: 15px;
+	padding-bottom: 5px;
+	margin: 0 15px 10px 0;
+	display: inline-block;
+	border-bottom: 2px solid transparent;
+  }
+  
+  .login-html .sign-in:checked + .tab,
+  .login-html .sign-up:checked + .tab {
+	color: #fff;
+	border-color: #5da92f;
+  }
+  
+  .login-form {
+	min-height: 345px;
+	position: relative;
+	perspective: 1000px;
+	transform-style: preserve-3d;
+  }
+  
+  .login-form .group {
+	margin-bottom: 0px;
+  }
+  
+  /* Inputs */
+  .login-form .group .label,
+  .login-form .group .input,
+  .login-form .group .button {
+	width: 80%;
+	color: #000000;
+	display: block;
+	margin-right: 50px;
+	margin-left: -20px; /* Adjust margin as needed */
+	margin: auto;
+	font-family: "HelveticaNeueLT Std Lt Cn", Sans-serif;
+  }
+  
+  .login-form .group .input,
+  .login-form .group .button {
+	border: none;
+	width: 90%;
+	padding: 15px 20px;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.5);
+	font-family: "HelveticaNeueLT Std Lt Cn", Sans-serif;
+  }
+  
+  .login-form .group input[data-type="password"] {
+	-webkit-text-security: circle;
+  }
+  
+  .login-form .group .label {
+	color: #000000;
+	font-size: 15px;
+	font-family: "HelveticaNeueLT Std Lt Cn", Sans-serif;
+	margin-left: 100%;
+	margin-left: 10%;
+  }
+  
+  /*button*/
+  .login-form .group .button {
+	background: rgb(40, 196, 79);
+	background-image: linear-gradient(to right, #5da92f, #9bd46a);
+	border: none;
+	width: 170px; /* Set the width of the button */
+	height: 50px; /* Set the height of the button */
+	font-size: 15px;
+	position: absolute; /* Set the position to absolute */
+	bottom: -70px; /* Set the distance from the bottom */
+	right: 250px; /* Set the distance from the right */
+	font-family: "HelveticaNeueLT Std Lt Cn", Sans-serif;
+  }
+  
+  .login-form .group .button:hover {
+	box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
+				-4px -4px 6px 0 rgba(116, 125, 136, .5),
+	  inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+	  inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+  }
+  
+  .login-form .group label .icon {
+	width: 15px;
+	height: 15px;
+	border-radius: 2px;
+	position: relative;
+	display: inline-block;
+	background: rgba(255, 255, 255, .1);
+  }
+  
+  .login-form .group label .icon:before {
+	left: 30px;
+	width: 50px;
+	bottom: 6px;
+	transform: scale(0) rotate(0);
+  }
+  
+  .login-form .group label .icon:after {
+	top: 600px;
+	right: 0;
+	transform: scale(0) rotate(0);
+  }
+  
+  .login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm {
+	transform: rotate(0);
+  }
+  
+  .login-html .sign-up:checked + .tab + .login-form .sign-up-htm {
+	transform: rotate(0);
+  }
+  
+  .hr {
+	height: 2px;
+	margin: 60px 0 50px 0;
+	background: rgba(255, 255, 255, .2);
+  }
+  
+  /*tjm client salaries*/
+  
+  .gray-input {
+	padding: 10px 20px;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.527);
+	width: 500px; 
+	
+  }
+  
+  /*section*/
+  
+  .form-input {
+	width: 200px; /* Set the width of the select box */
+	height: 40px; /* Set the height of the select box */
+	padding: 5px; /* Add some padding */
+	font-size: 16px; /* Set the font size */
+	border: 1px solid rgba(255, 255, 255, .2); /* Add a border */
+	border-radius: 5px; /* Add some border radius */
+	background-color: rgba(255, 255, 255, .2); /* Set the background color */
+  }
+  
+  /* Style for the options */
+  .form-input option {
+	font-size: 14px; /* Set the font size of options */
+	padding: 5px 10px; /* Add padding to options */
+  }
+  
+  /* Optional hover effect for options */
+  .form-input option:hover {
+	background-color: rgba(255, 255, 255, .2); /* Change background color on hover */
+  }
+  
