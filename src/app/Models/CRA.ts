@@ -14,7 +14,7 @@ export class CRA {
       missionid: string,
       montantH: string,
       montantTTC: string,
-     
+
     ) {
       this.id = id;
       this.mois = mois;
@@ -22,8 +22,7 @@ export class CRA {
       this.missionid = missionid;
       this.montantH = montantH;
       this.montantTTC = montantTTC;
-   
-     
+
+
     }
   }
-  

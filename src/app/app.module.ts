@@ -1,38 +1,45 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
+import { DatePipe } from '@angular/common';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { NgxCountriesDropdownModule } from 'ngx-countries-dropdown';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { ButtonModule } from 'primeng/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { NavigateComponent } from './navigate/navigate.component';
-import { RestapiService } from './restapi.service';
-import { ListComponent } from './list/list.component';
-import { SimulateurdetailsComponent } from './simulateurdetails/simulateurdetails.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MatMenuModule } from '@angular/material/menu';
-import { DatePipe } from '@angular/common';
-import { SalariesComponent } from './salaries/salaries.component';
-import { SearchComponent } from './search/search.component';
-import { SalariesdetailsComponent } from './salariesdetails/salariesdetails.component';
-import { PdfdetailsComponent } from './pdfdetails/pdfdetails.component';
 import { ClientComponent } from './client/client.component';
-import { CRAComponent } from './cra/cra.component';
-import { MissionComponent } from './mission/mission.component';
-import { ClientlistComponent } from './clientlist/clientlist.component';
-import { MissionlistComponent } from './missionlist/missionlist.component';
-import { CralistComponent } from './cralist/cralist.component';
-import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 import { ClientdetailsComponent } from './clientdetails/clientdetails.component';
-import { MatIconModule } from '@angular/material/icon';
+import { ClientlistComponent } from './clientlist/clientlist.component';
+import { CountrySearchComponentComponent } from './country-search-component/country-search-component.component';
+import { CRAComponent } from './cra/cra.component';
+import { CralistComponent } from './cralist/cralist.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { DialogAnimationsExampleDialogComponent } from './dialog-animations-example-dialog/dialog-animations-example-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
-
-
-
-
+import { DialogEditComponent } from './dialog-edit/dialog-edit.component';
+import { HomeComponent } from './home/home.component';
+import { ListComponent } from './list/list.component';
+import { LoginComponent } from './login/login.component';
+import { MissionComponent } from './mission/mission.component';
+import { MissiondetailsComponent } from './missiondetails/missiondetails.component';
+import { MissionlistComponent } from './missionlist/missionlist.component';
+import { NavigateComponent } from './navigate/navigate.component';
+import { PdfdetailsComponent } from './pdfdetails/pdfdetails.component';
+import { RestapiService } from './restapi.service';
+import { SalariesComponent } from './salaries/salaries.component';
+import { SalariesdetailsComponent } from './salariesdetails/salariesdetails.component';
+import { SearchComponent } from './search/search.component';
+import { SimulateurdetailsComponent } from './simulateurdetails/simulateurdetails.component';
+import { MonthlyDataComponent } from './monthly-data/monthly-data.component';
+import { CradetailsComponent } from './cradetails/cradetails.component';
 
 
 
@@ -56,28 +63,43 @@ import { MatDialogModule } from '@angular/material/dialog';
     CralistComponent,
     ClientdetailsComponent,
     DialogAnimationsExampleDialogComponent,
+    DashboardComponent,
+    MissiondetailsComponent,
+    DialogEditComponent,
+    CountrySearchComponentComponent,
+    MonthlyDataComponent,
+    CradetailsComponent,
 
 
   ],
   imports: [
     BrowserModule,
+    ButtonModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
     MatMenuModule,
-    HttpClientJsonpModule,  
+    HttpClientJsonpModule,
     MatSelectCountryModule.forRoot('fr'), // you can use 'br' | 'de' | 'en' | 'es' | 'fr' | 'hr' | 'hu' | 'it' | 'nl' | 'pt' --> MatSelectCountrySupportedLanguages
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    }),
+    MatFormFieldModule,
+    MatSelectModule,
+    NgxCountriesDropdownModule
+
 
   ],
+
   providers: [
     RestapiService,
     provideAnimationsAsync(),
     DatePipe
     ],
   bootstrap: [AppComponent]
- 
+
 })
 export class AppModule { }

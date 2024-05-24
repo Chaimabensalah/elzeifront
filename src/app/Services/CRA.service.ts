@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -12,6 +12,10 @@ const baseurl = "http://localhost:8080/api/CRA";
 export class CRAService {
 
   private baseUrl: string = "http://localhost:8080/api/CRA";
+  private baseUrl2: string = "http://localhost:8080/api/CRA/updateCRA";
+  private baseUrl3: string = "http://localhost:8080/api/CRA/deleteCRA";
+
+
 
   constructor(private http: HttpClient) { }
   getCRAById(id: number): Observable<CRA> {
@@ -22,23 +26,20 @@ export class CRAService {
     return this.http.get<CRA[]>(this.baseUrl).pipe(
       map(response => response)
     );
-  }  
+  }
 
   create(data: any): Observable<CRA> {
     return this.http.post<CRA>("http://localhost:8080/api/CRA/save", data).pipe(
       map(response => response)
     );
   }
-
-  update(id: string, data: any): Observable<CRA> {
-    const url = `${this.baseUrl}/${id}`;
-    return this.http.put<CRA>(url, data, {
-      headers: { 'Content-Type': 'application/json' }
-    });
+  update(id: string,data: any): Observable<CRA> {
+    return this.http.put<CRA>(`${this.baseUrl2}/${id}`, data).pipe(
+      map(response => response)
+    );
   }
-
   delete(id: any): Observable<CRA> {
-    return this.http.delete<CRA>(`${this.baseUrl}/${id}`).pipe(
+    return this.http.delete<CRA>(`${this.baseUrl3}/${id}`).pipe(
       map(response => response)
     );
   }
@@ -59,7 +60,7 @@ export class CRAService {
   getAllCRA(): Observable<CRA[]> {
     return this.http.get<CRA[]>(`${this.baseUrl}`);
   }
- 
+
 
   searchCRA(searchTerm: string): Observable<CRA[]> {
     return this.http.get<CRA[]>(`${this.baseUrl}`).pipe(

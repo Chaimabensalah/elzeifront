@@ -1,7 +1,8 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Mission } from '../Models/Mission';
 import { Salaries } from '../Models/Salaries';
 const baseurl = "http://localhost:8080/api/salaries";
 
@@ -12,6 +13,7 @@ export class SalariesService {
 
   private baseUrl: string = "http://localhost:8080/api/salaries";
   private baseUrl2: string = "http://localhost:8080/api/salaries/update";
+  private baseUrl3: string = "http://localhost:8080/api/salaries/deletesalarie";
 
 
   constructor(private http: HttpClient) { }
@@ -23,26 +25,36 @@ export class SalariesService {
     return this.http.get<Salaries[]>(this.baseUrl).pipe(
       map(response => response)
     );
-  }  
+  }
 
   create(data: any): Observable<Salaries> {
-    return this.http.post<Salaries>(`${this.baseUrl}/save`, data).pipe(
+    return this.http.post<Salaries>("http://localhost:8080/api/salaries/save", data).pipe(
       map(response => response)
     );
   }
 
-  update(id: string, data: any): Observable<Salaries> {
-    const url = `${this.baseUrl2}/${id}`;
-    return this.http.put<Salaries>(url, data, {
-      headers: { 'Content-Type': 'application/json' }
-    });
+
+
+
+
+  update(id: string,data: any): Observable<Salaries> {
+    return this.http.put<Salaries>(`${this.baseUrl2}/${id}`, data).pipe(
+      map(response => response)
+    );
   }
+
+
+
+
+
 
   delete(id: String): Observable<Salaries> {
-    return this.http.delete<Salaries>(`${this.baseUrl}/deletesalarie/${id}`).pipe(
+    return this.http.delete<Salaries>(`${this.baseUrl3}/${id}`).pipe(
       map(response => response)
     );
   }
+
+
 
   deleteAll(): Observable<Salaries> {
     return this.http.delete<Salaries>(this.baseUrl).pipe(
@@ -60,12 +72,14 @@ export class SalariesService {
   getAllSalaries(): Observable<Salaries[]> {
     return this.http.get<Salaries[]>(`${this.baseUrl}`);
   }
-  
+
   searchSalaries(searchTerm: string): Observable<Salaries[]> {
     return this.http.get<Salaries[]>(`${this.baseUrl}`).pipe(
       map(salaries => {
+        const searchTermParts = searchTerm.split(' ').filter(part => part.trim() !== ''); // Sépare les parties de searchTerm
+          const searchTermRegex = new RegExp(searchTermParts.join('.*'), 'i'); // Crée une expression régulière pour rechercher le nom ou le prénom composé
         if (!isNaN(+searchTerm)) { // Vérifie si searchTerm est un nombre
-          return salaries.filter(s => s.matricule === searchTerm);
+          return salaries.filter(s => searchTermRegex.test(s.matricule) || searchTermRegex.test(s.numSS));
         } else if (searchTerm.includes('')) {
           const searchTermParts = searchTerm.split(' ').filter(part => part.trim() !== ''); // Sépare les parties de searchTerm
           const searchTermRegex = new RegExp(searchTermParts.join('.*'), 'i'); // Crée une expression régulière pour rechercher le nom ou le prénom composé
@@ -76,8 +90,8 @@ export class SalariesService {
       })
     );
   }
-  
-  
+
+
 
   uploadPdf(file: File): Observable<string> {
     const formData: FormData = new FormData();
@@ -92,9 +106,29 @@ export class SalariesService {
 
 
 
-  uploadFile(formData: FormData) {
-    return this.http.post<any>('http://localhost:8080/api/uploadPDF', formData);
+  /*partie pdf*/
+
+
+  uploadFile(formData: FormData):Observable<any> {
+    return this.http.post('http://localhost:8080/api/v1/test/justificatif/fill-pdf', formData);
   }
+
+
+
+  getPdfs(): Observable<any[]> {
+    return this.http.get<any[]>("http://localhost:8080/api/pdf").pipe(
+      map(response => response)
+    );
+  }
+
+
+
+  getmissionbyuserid(id : number): Observable<Mission> {
+    return this.http.get<Mission>("http://localhost:8080/api/Mission/user/"+id);
+  }
+
+
+
 
 
 }

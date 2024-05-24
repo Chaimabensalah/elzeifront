@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Simulateur } from '../Models/Simulateur.model';
 import { SimulateurService } from '../Services/Simulateur.service';
 
@@ -45,9 +46,6 @@ export class HomeComponent implements OnInit{
      chargesPatronalesURSSAF:0,
      chargesSalariales:0,
      chargesPatronalesAnn:0,
-
-    
-
     solde:0,
     totalPercu:0,
     extraPossibleHorsPAS:0,
@@ -59,7 +57,7 @@ export class HomeComponent implements OnInit{
   MyService: any;
   http: any;
 
-  constructor(private fb: FormBuilder,private SimulateurService: SimulateurService) {} // Inject SimulatorService
+  constructor(private fb: FormBuilder,private SimulateurService: SimulateurService,private router:Router) {} // Inject SimulatorService
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -258,6 +256,7 @@ save() :void{
     this.SimulateurService.create(bodyData).subscribe((res) => {
       console.log('simulateur:', res);
       console.log('simulateur:', bodyData);
+      this.router.navigate(["/list"]);
     },(error) => {
       console.error('Erreur lors de la création du Simulateur', error);
     }

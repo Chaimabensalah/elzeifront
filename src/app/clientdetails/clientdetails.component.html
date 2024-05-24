@@ -1,9 +1,9 @@
 
 <body>
     <app-navigate></app-navigate>
- <br> 
+ <br>
   <form [formGroup]="myForm" class='myfor'>
-  
+
 <div class="login-wrap1">
   <div class="login-html">
     <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Client</label>
@@ -25,31 +25,31 @@
      </tr>
         <label  class="label" for="pays">Pays:</label><br><br>
         <div class="countrys">
-            <mat-select-country class="input" 
+            <mat-select-country class="input"
                                 (onCountrySelected)="onCountrySelected($event)">
             </mat-select-country>
           </div>            <br><br>
          <tr>
-            
-  
+
+
             <td>
                 <div class="group">
                     <label  class="label" for="address">Adresse:</label><br>
                     <td>
-               
+
                     <input class="input" type="text"  id="address" name="address" placeholder="address" formControlName="address" [value]="selectedClient?.address" required><br>
                 </td>
-                
 
-                
+
+
                 </div>
             </td>
 
 </tr>
-        <div class="group">
-            <input class="input" type="button" class="button"  value="Update" (click)="updateClient()" routerLink="/clientlist">
-        </div>  
-   
+<br><br>
+        <button class="group"  (click)="updateClient()">
+          Sauvegarder
+           </button>
         </div>
     </div>
   </div>

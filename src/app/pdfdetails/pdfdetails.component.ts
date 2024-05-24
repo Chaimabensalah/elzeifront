@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { SalariesService } from '../Services/Salaries.service';
 
 @Component({
   selector: 'app-pdfdetails',
@@ -9,44 +7,37 @@ import { throwError } from 'rxjs';
   styleUrls: ['./pdfdetails.component.css']
 })
 export class PdfdetailsComponent {
-  result: string | null = null;
-  selectedFile: File | null = null;
+constructor(private salariesService :SalariesService){this.getAllPdfs()}
 
-  constructor(private http: HttpClient) {}
+selectedFile : File | null=null;
 
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
-  }
-
-  uploadPDF() {
-    if (!this.selectedFile) {
-      this.result = 'No file selected.';
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('file', this.selectedFile);
-
-    this.http.post<any>('http://localhost:8080/api/uploadPDF', formData)
-      .pipe(
-        catchError((error: HttpErrorResponse) => {
-          console.error('Error:', error);
-          let errorMessage = 'Error occurred while uploading the file.';
-          if (error.error instanceof ErrorEvent) {
-            // Client-side error
-            errorMessage = `An error occurred: ${error.error.message}`;
-          } else {
-            // Server-side error
-            errorMessage = `Server returned code: ${error.status}, error message is: ${error.message}`;
-          }
-          this.result = errorMessage;
-          return throwError(errorMessage);
-        })
-      )
-      .subscribe(
-        data => {
-          this.result = JSON.stringify(data);
-        }
-      );
-  }
+uploadpdf(event: Event){
+const target = event.target as HTMLInputElement;
+this.selectedFile = target.files ? target.files [0]  : null;
+if (this.selectedFile) {
+const formData = new FormData();
+formData.append('file', this.selectedFile, this.selectedFile.name);
+this.salariesService.uploadFile( formData).subscribe((res:any)=>{
+  console.log(res);
+  window.location.reload();
+},(error)=>{
+console.log(error)
+})
 }
+}
+
+pdfs:any[] = [];
+getAllPdfs(){
+  this.salariesService.getPdfs().subscribe((res:any)=>{
+    console.log(res)
+    this.pdfs = res;
+    },(error)=>{
+      console.log(error)
+      })
+}
+
+
+  }
+
+
+

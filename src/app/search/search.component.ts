@@ -1,9 +1,11 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Salaries } from '../Models/Salaries';
 import { SalariesService } from '../Services/Salaries.service';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
+import { DialogAnimationsExampleDialogComponent } from '../dialog-animations-example-dialog/dialog-animations-example-dialog.component';
+import { DialogEditComponent } from '../dialog-edit/dialog-edit.component';
 
 @Component({
   selector: 'app-search',
@@ -22,7 +24,7 @@ export class SearchComponent {
   selectedSalary: Salaries | null = null;
 
 
-  constructor(private salariesService: SalariesService, private router: Router,private activatedRoute: ActivatedRoute,) { }
+  constructor(private salariesService: SalariesService, private router: Router,private activatedRoute: ActivatedRoute,public dialog: MatDialog,) { }
 
   ngOnInit(): void {
     this.loadSalaries();
@@ -43,34 +45,59 @@ export class SearchComponent {
       this.loadSalaries();
     }
   }
-  
+
 
   viewDetails(salarie: Salaries): void {
+    const dialogRef = this.dialog.open(DialogEditComponent, {
+      width: '300px',
+      data: salarie
+       });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
     this.router.navigate(['salariesdetails', salarie.id]);
-  }
+  }})
+}
+
+
+
+
+
+
+
+
 
   selectSalary(salaries: Salaries): void {
     this.selectedSalary = salaries;
   }
 
 
+  deleteCompte(data:Salaries) {
+    const dialogRef = this.dialog.open(DialogAnimationsExampleDialogComponent, {
+      width: '300px',
+      data: data
+       });
 
-
-  deleteCompte(id: String) {
-    this.salariesService.delete(id).subscribe(
-      () => {
-        console.log("salaries deleted successfully.");
-        this.loadSalaries();
-      
-        this.router.navigate(['/Salaries']);
-      },
-      (error: HttpErrorResponse) => {
-        console.error("Error deleting salaries:", error);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.salariesService.delete(data.id).subscribe(
+          () => {
+            window.location.reload();
+          },
+          (error: HttpErrorResponse) => {
+            console.error("Error deleting Salaries:", error);
+          }
+        );
       }
-    );
+    });
+    console.log("Salaries deleted successfully.");
+    this.loadSalaries();
+
+    this.router.navigate(['/search']);
+
   }
 }
-  
+
 
 
 

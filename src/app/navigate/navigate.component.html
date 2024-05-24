@@ -1,3 +1,5 @@
+
+
 <div class="nav">
   <input type="checkbox" id="nav-check">
   <div class="nav-header">
@@ -19,9 +21,9 @@
   <div class="nav-links">
     <a href="#">Configuration</a>
     <div class="dropdown-content">
-      <a href="#" routerLink="/list" >gestion utilisateur</a>
-      <a href="#" routerLink="/list" >gestion ref utilisateur</a>
-      <a href="#" routerLink="/list" >referance</a>
+      <a href="#" >gestion utilisateur</a>
+      <a href="#"  >gestion ref utilisateur</a>
+      <a href="#" >referance</a>
     </div>
   </div>
 
@@ -35,58 +37,81 @@
   </div>
 
 
- 
+
 
   <div class="nav-links">
-    <a href="#">Dashboard</a>
+    <a  routerLinkActive="active">dashboard</a>
+    <div class="dropdown-content">
+      <a href="#" routerLink="/dashboard" routerLinkActive="active">dashboard</a>
+    </div>
   </div>
 
- 
-
 
   <div class="nav-links">
-    <a href="/" routerLink="/home" routerLinkActive="active">Simulation</a>
+    <a routerLinkActive="active">Simulation</a>
+
     <div class="dropdown-content">
+      <a href="/" routerLink="/home" routerLinkActive="active">Simulation</a>
+
       <a href="#" routerLink="/list" routerLinkActive="active">list-simulations</a>
     </div>
   </div>
 
 
 
+  <div class="nav-links">
+    <a routerLinkActive="active">Fiche de paie</a>
+    <div class="dropdown-content">
+      <a href="/" routerLink="/pdfdetails" routerLinkActive="active">Fiche de paie</a>
+    </div>
+  </div>
 
 
   <div class="nav-links">
-    <a href="/" routerLink="/salaries" routerLinkActive="active">Salarie</a>
+    <a routerLinkActive="active">monthlydata</a>
     <div class="dropdown-content">
+      <a href="/" routerLink="/monthly-data" routerLinkActive="active">monthlydata</a>
+    </div>
+  </div>
+
+  <div class="nav-links">
+    <a routerLinkActive="active">Salarie</a>
+    <div class="dropdown-content">
+      <a href="/" routerLink="/salaries" routerLinkActive="active">Salarie</a>
       <a href="#" routerLink="/search" routerLinkActive="active">list-salaries</a>
     </div>
   </div>
 
+
+
+
   <div class="nav-links">
-    <a href="/" routerLink="/Client" routerLinkActive="active">Client</a>
+    <a routerLinkActive="active">Client</a>
     <div class="dropdown-content">
+      <a href="/" routerLink="/Client" routerLinkActive="active">Client</a>
       <a href="/" routerLink="/clientlist" routerLinkActive="active">list-Clients</a>
     </div>
   </div>
 
- 
 
-  <div class="nav-links">
-    <a href="/" routerLink="/Mission" routerLinkActive="active">Mission</a>
-  </div>
-  
-  <div class="nav-links">
-    <a href="/" routerLink="/missionlist" routerLinkActive="active">list-mission</a>
-  </div>
-
-  <div class="nav-links">
-    <a href="/" routerLink="/CRA" routerLinkActive="active">CRA</a>
-  </div>
 
 
   <div class="nav-links">
-    <a href="/" routerLink="/cralist" routerLinkActive="active">list-cra</a>
+    <a routerLinkActive="active">Mission</a>
+    <div class="dropdown-content">
+      <a href="/" routerLink="/Mission" routerLinkActive="active">Mission</a>
+      <a href="#" routerLink="/missionlist" routerLinkActive="active">list-mission</a>
+    </div>
   </div>
 
+
+
+  <div class="nav-links">
+    <a  routerLinkActive="active">CRA</a>
+    <div class="dropdown-content">
+      <a href="/" routerLink="/CRA" routerLinkActive="active">CRA</a>
+      <a href="#" routerLink="/cralist" routerLinkActive="active">list-cra</a>
+    </div>
+  </div>
 
 </div>

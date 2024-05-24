@@ -1,0 +1,238 @@
+
+<body>
+  <app-navigate></app-navigate>
+<br>
+  <form [formGroup]="myForm" class='myfor'>
+
+
+<div class="login-wrap1">
+  <div class="login-html">
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Data</label>
+    <div class="login-form">
+<br>
+
+
+<br>
+
+<tr>
+  <td>
+  <label class="label" class="form-label" for="salariesid"> salaries : </label>
+  <select class="input" id="salariesid" class="form-input" formControlName="salariesid" required>
+    <option value="all">Toutes les salaries</option>
+    <option *ngFor="let salaries of Salariess" [value]="salaries.id">{{ salaries.nom }}</option>
+</select>
+</td>
+<br>
+<td>
+  <label class="label" class="form-label" for="missionid"> Mission : </label>
+  <select class="input" id="missionid" class="form-input" formControlName="missionid" (change)="fill()" required>
+    <option value="all">Toutes les missions</option>
+    <option *ngFor="let mission of MissionS" [value]="mission.id">{{ mission.codemission }}</option>
+</select>
+</td>
+<br>
+<td>
+  <label class="label" class="form-label" for="craid"> CRA : </label>
+  <select class="input" id="craid" class="form-input" formControlName="craid" (change)="fill()" required>
+    <option value="all">Toutes les cras</option>
+    <option *ngFor="let CRA of cras" [value]="CRA.id">{{ CRA.id }}</option>
+</select>
+</td>
+</tr>
+<br>
+<br>
+
+
+
+
+
+
+
+<tr>
+  <td>
+    <label  class="label"  for="mois">mois:</label><br>
+       <div class="gray-input">
+         <div class="text-box">
+           <div class="text-area">
+             <tr>
+             <output class="input" formControlName="CRA">{{selectedCRA?.mois}}</output><br>
+           </tr>
+         </div>
+       </div>
+     </div>
+   </td>
+<td>
+  <label  class="label"  for="tjm">TJM:</label><br>
+     <div class="gray-input">
+       <div class="text-box">
+         <div class="text-area">
+           <tr>
+           <output class="input" formControlName="Mission">{{selectedMission?.tjm}}</output><br>
+         </tr>
+       </div>
+     </div>
+   </div>
+ </td>
+ <td>
+  <label  class="label"  for="tjm">nbjour:</label><br>
+     <div class="gray-input">
+       <div class="text-box">
+         <div class="text-area">
+           <tr>
+           <output class="input" formControlName="CRA">{{selectedCRA?.nbjour}}</output><br>
+         </tr>
+       </div>
+     </div>
+   </div>
+ </td>
+ <td>
+  <label  class="label"  for="tjm">facture:</label><br>
+     <div class="gray-input">
+       <div class="text-box">
+         <div class="text-area">
+           <tr>
+           <output class="input" formControlName="CRA">formule</output><br>
+         </tr>
+       </div>
+     </div>
+   </div>
+ </td>
+</tr>
+<br>
+
+
+
+
+
+<tr>
+  <td>
+    <label  class="label"  for="mois">salaire brut:</label><br>
+       <div class="gray-input">
+         <div class="text-box">
+           <div class="text-area">
+             <tr>
+             <output class="input">pdf</output><br>
+           </tr>
+         </div>
+       </div>
+     </div>
+   </td>
+
+<td>
+  <label  class="label"  for="tjm">salaire net:</label><br>
+     <div class="gray-input">
+       <div class="text-box">
+         <div class="text-area">
+           <tr>
+           <output class="input">pdf</output><br>
+         </tr>
+       </div>
+     </div>
+   </div>
+ </td>
+ <td>
+  <label  class="label"  for="tjm">frais repas:</label><br>
+     <div class="gray-input">
+       <div class="text-box">
+         <div class="text-area">
+           <tr>
+           <output class="input">pdf</output><br>
+         </tr>
+       </div>
+     </div>
+   </div>
+ </td>
+ <td>
+  <label  class="label"  for="tjm">frais kilo:</label><br>
+     <div class="gray-input">
+       <div class="text-box">
+         <div class="text-area">
+           <tr>
+           <output class="input">saisie</output><br>
+         </tr>
+       </div>
+     </div>
+   </div>
+ </td>
+</tr><br>
+
+
+
+
+
+
+<tr>
+  <td>
+    <label  class="label"  for="mois">Autre:</label><br>
+       <div class="gray-input">
+         <div class="text-box">
+           <div class="text-area">
+             <tr>
+             <output class="input">saiasie</output><br>
+           </tr>
+         </div>
+       </div>
+     </div>
+   </td>
+
+<td>
+  <label  class="label"  for="tjm">charge patronal:</label><br>
+     <div class="gray-input">
+       <div class="text-box">
+         <div class="text-area">
+           <tr>
+           <output class="input">formule</output><br>
+         </tr>
+       </div>
+     </div>
+   </div>
+ </td>
+ <td>
+  <label  class="label"  for="tjm">harge salariale:</label><br>
+     <div class="gray-input">
+       <div class="text-box">
+         <div class="text-area">
+           <tr>
+           <output class="input">pdf</output><br>
+         </tr>
+       </div>
+     </div>
+   </div>
+ </td>
+ <td>
+  <label  class="label"  for="tjm">charge annexe:</label><br>
+     <div class="gray-input">
+       <div class="text-box">
+         <div class="text-area">
+           <tr>
+           <output class="input" formControlName="CRA">simulation</output><br>
+         </tr>
+       </div>
+     </div>
+   </div>
+ </td>
+</tr>
+<br>
+<td>
+  <label  class="label"  for="cout">cout:</label><br>
+     <div class="gray-input">
+       <div class="text-box">
+         <div class="text-area">
+           <tr>
+           <output class="input" >formule</output><br>
+         </tr>
+       </div>
+     </div>
+   </div>
+  </td>
+<br><br>
+                        <button (click)="save()" >
+                          Sauvgarder
+                        </button>
+  </div>
+</div>
+</div>
+
+</form>
+</body>
+

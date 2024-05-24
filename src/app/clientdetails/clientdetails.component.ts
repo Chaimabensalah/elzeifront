@@ -1,10 +1,10 @@
+import { Country } from '@angular-material-extensions/select-country';
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ClientService } from '../Services/Client.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Client } from '../Models/Client';
-import {Country} from '@angular-material-extensions/select-country'; 
-import { ActivatedRoute } from '@angular/router';
-import { DatePipe } from '@angular/common';
+import { ClientService } from '../Services/Client.service';
 
 
 @Component({
@@ -16,19 +16,19 @@ export class ClientdetailsComponent {
 
   selectedClient?: Client;
   myForm!: FormGroup;
-  router: any;
   showParagraph: boolean | undefined;
   coefficientOptions: string[] = [];
   countryFormControl = new FormControl();
   countryFormGroup: FormGroup | undefined;
   currentDate: string = '';
   selectedCountry: Country | undefined;
-  constructor(private fb: FormBuilder, private ClientService: ClientService, private activatRoute:ActivatedRoute,private datePipe: DatePipe ) {this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd') || ''} // Inject SimulatorService
-
+  constructor(private fb: FormBuilder, private ClientService: ClientService, private activatRoute:ActivatedRoute,private datePipe: DatePipe,private router:Router ) {this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd') || ''} // Inject SimulatorService
+   id:string="";
   ngOnInit(): void {
     this.activatRoute.params.subscribe(params => {
-      const ClientId = +params['id']; // Extraire simulateurId des paramètres et le convertir en nombre
-      this.loadclientDetails(ClientId); // Appeler la méthode pour charger les détails du simulateur
+      this.id= params['id']; // Extraire simulateurId des paramètres et le convertir en nombre
+      this.loadclientDetails(this.id);
+      console.log(this.id) // Appeler la méthode pour charger les détails du simulateur
     });
     this.myForm = this.fb.group({
       libelle: [''],
@@ -43,7 +43,7 @@ export class ClientdetailsComponent {
 
 
 
-  loadclientDetails(ClientId: number): void {
+  loadclientDetails(ClientId: string): void {
     // Récupérer les détails du simulateur depuis le service
     this.ClientService.getClientById(ClientId).subscribe(
       (Client: Client) => {
@@ -79,10 +79,13 @@ export class ClientdetailsComponent {
       }
 
       console.log(updatedData);
-      this.ClientService.update(id, updatedData).subscribe(
+      this.ClientService.update(this.id, updatedData).subscribe(
         (response: Client) => {
           // Handle successful update response
+          this.router.navigate(["/clientlist"]);
           console.log('client updated successfully:', response);
+
+
         },
         (error: any) => {
           // Handle error
@@ -92,7 +95,7 @@ export class ClientdetailsComponent {
     }
   }
 
- 
+
 
 
   onCountrySelected(country: Country) {
@@ -101,7 +104,7 @@ export class ClientdetailsComponent {
     console.log(countryName);
   }
 
- 
- 
+
+
 }
 

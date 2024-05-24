@@ -4,7 +4,7 @@
 
 body {
   margin: 0px;
-  font-family: 'segoe ui';
+  font-family: Arial, sans-serif;
 }
 
 .nav {
@@ -16,7 +16,8 @@ body {
   position: relative;
   left: 0px;
   right: 200px;
-  
+
+  cursor: pointer;
 
 }
 

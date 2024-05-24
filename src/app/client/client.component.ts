@@ -1,8 +1,10 @@
+import { Country } from '@angular-material-extensions/select-country';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Client } from '../Models/Client';
 import { ClientService } from '../Services/Client.service';
-import {Country} from '@angular-material-extensions/select-country'; 
+
 
 @Component({
   selector: 'app-client',
@@ -20,10 +22,9 @@ export class ClientComponent implements OnInit {
   }
 
   myForm!: FormGroup;
-  router: any;
   showParagraph: boolean | undefined;
   coefficientOptions: string[] = [];
-  constructor(private fb: FormBuilder, private ClientService: ClientService) {} // Inject SimulatorService
+  constructor(private fb: FormBuilder, private ClientService: ClientService,private router:Router) {} // Inject SimulatorService
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -36,13 +37,13 @@ export class ClientComponent implements OnInit {
       codePostal: ['', Validators.required]
     });
   }
-  
+
   updateAddress() {
     const formData = this.myForm.value;
     const ville = formData.ville;
     const rue = formData.rue;
     const codePostal = formData.codePostal;
-    
+
     this.Client.address = `${ville}/${rue}/${codePostal}`;
         console.log("Adresse complète: " + this.Client.address);
   }
@@ -56,26 +57,27 @@ export class ClientComponent implements OnInit {
     console.log(libelle, numtva, address, pays);
   }
 
-  
+
   save(): void {
     const formData = this.myForm.value;
     const ville = formData.ville;
     const rue = formData.rue;
     const codePostal = formData.codePostal;
-  
+
     // Concatenate the address parts into a single address string
     const address = `${ville}/${rue}/${codePostal}`;
-  
+
     const bodyData = {
       libelle: this.myForm.get('libelle')?.value,
       numtva: this.myForm.get('numtva')?.value,
       address: address,
-      pays: this.myForm.get('pays')?.value,      
+      pays: this.myForm.get('pays')?.value,
     };
 
     this.ClientService.create(bodyData).subscribe(
       (res: any) => {
         console.log('Client created successfully:', res);
+        this.router.navigate(["/clientlist"]);
       },
       (error: any) => {
         console.error('Error occurred while creating Client:', error);
@@ -91,6 +93,6 @@ export class ClientComponent implements OnInit {
 
 
 
- 
+
 }
 

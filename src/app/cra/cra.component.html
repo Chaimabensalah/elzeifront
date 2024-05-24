@@ -2,79 +2,85 @@
 <body>
   <app-navigate></app-navigate>
 <br>
-<form [formGroup]="myForm" class='myfor'>
+<form [formGroup]="myForm" class='myfor'(ngSubmit)="submitForm()">
 
 
 
   <div class="login-wrap1">
     <div class="login-html">
+
       <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">CRA</label>
+
       <div class="login-form">
 <br><br>
 <tr>
-  <td>
+    <div class="group">
           <label class="label" class="form-label" for="missionid">Mission : </label>
-          <select id="missionid" class="form-input" formControlName="missionid" required>         
+          <select id="missionid" class="form-input" formControlName="missionid" (change)="fill()" required>
             <!-- Autres options pour les classes -->
             <option value="all">Toutes les missions</option>
-            <option *ngFor="let mission of MissionS" [value]="mission.id">{{ mission.id }} - {{ mission.tjm }}
+            <option *ngFor="let mission of MissionS" [value]="mission.id">{{ mission.codemission }}
           </option>
-          </select><br><br>
-        </td>
-      <td>
-         <label   for="tjm">TJM:</label><br>       
-            <div class="gray-input">
-              <div class="text-box">           
-                <div class="text-area">
-                  <tr>               
-                  <output formControlName="tjm">{{ selectedMission?.tjm }}</output><br>
-                </tr>
-              </div>
-            </div>
-          </div>
-        </td>
-        </tr>  
-
-
+          </select> </div><br><br>
+  </tr>
 
 <tr>
   <td>
-         <label   for="tjm">Salaries:</label><br>     
+    <label  class="label"  for="tjm">Salaries:</label>
          <div class="gray-input">
-           <div class="text-box">           
+           <div class="text-box">
              <div class="text-area">
-               <tr>               
-               <output formControlName="Salaries">{{ selectedMission?.salariesid }}</output><br>
+               <tr>
+               <output class="input" formControlName="Salaries"><span *ngFor="let salary of selectedMission?.salariesid">/{{salary.nom}}</span></output><br>
              </tr>
            </div>
          </div>
        </div><br>
       </td>
+
+
+
+
+
     <td>
-       <label   for="tjm">Client:</label><br>    
+       <label for="Client">Client:</label>
        <div class="gray-input">
-         <div class="text-box">           
+         <div class="text-box">
            <div class="text-area">
-             <tr>               
-             <output formControlName="Client">{{ selectedMission?.clientid }}</output><br>
+             <tr>
+             <output class="input" formControlName="Client">{{ selectedMission?.clientid?.libelle }}</output><br>
            </tr>
          </div>
        </div>
      </div>
     </td>
-  
+
+
+
+    <td>
+      <label  class="label"  for="tjm">TJM:</label><br>
+         <div class="gray-input">
+           <div class="text-box">
+             <div class="text-area">
+               <tr>
+               <output class="input" (keyup)="submitForm()">{{ selectedMission?.tjm }}</output><br>
+             </tr>
+           </div>
+         </div>
+       </div>
+     </td>
     </tr>
     <tr>
       <td>
           <div class="group">
              <label  class="label"  for="mois">Mois:</label>
-             <input  class="input" type="month" id="mois" name="mois" formControlName="mois" required>
-          </div>       
+             <input  class="input" type="month" id="mois" name="mois" formControlName="mois"   required>
+          </div>
         </td>
           <td>
           <div class="group">
             <label  class="label" for="nbjour">Nombre de jours:</label>
-            <input class="input"  type="text" id="nbjour" name="nbjour" formControlName="nbjour" required><br>
+            <input class="input"  type="text" id="nbjour" name="nbjour" formControlName="nbjour" required (keyup)="submitForm()"><br>
           </div>
         </td>
 
@@ -83,14 +89,11 @@
 
 
 
-
-
-
-        <tr>   
+        <tr>
           <td>
                 <div class="group">
             <label class="label" for="montantH">montantH</label>
-            <input class="input" type="text" id="montantH" name="montantH" formControlName="montantH">
+            <input class="input" type="text" id="montantH" name="montantH" formControlName="montantH" (keyup)="submitForm()" readonly>
           </div>
         </td>
 
@@ -99,11 +102,11 @@
       <td>
           <div class="group">
               <label class="label" for="montantTTC">montantTTC</label>
-              <input class="input" type="text" id="montantTTC" name="montantTTC" formControlName="montantTTC" required>
-          </div>	
+              <input class="input" type="text" id="montantTTC" name="montantTTC" formControlName="montantTTC"  required readonly>
+          </div>
         </td>
       </tr>
-
+<br>
 
 
 
@@ -111,14 +114,14 @@
 
 
         <div class="group">
-            <input class="input" type="submit" class="button" value="Sauvegarder" (click)="save()" routerLink="/cralist">
+            <button  value="Sauvegarder" (click)="save()">Sauvgarder</button>
           </div>
-     
+
         </div>
       </div>
     </div>
 
-  
+
 
 </form>
 </body>

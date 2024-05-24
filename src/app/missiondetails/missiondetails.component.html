@@ -1,0 +1,93 @@
+
+<body>
+  <app-navigate></app-navigate>
+<br>
+  <form [formGroup]="myForm" class='myfor'>
+
+
+<div class="login-wrap1">
+  <div class="login-html">
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Mission</label>
+    <div class="login-form">
+<br><br>
+
+
+<td>
+  <div class="group">
+  <label class="label" for="codemission">codeMission:</label>
+  <input class="input" type="text" id="codemission" name="codemission" formControlName="codeMission" [value]="selectedMission?.codemission" required>
+  </div>
+</td>
+
+
+
+
+<br>
+<tr>
+  <td>
+    <div class="group">
+    <label class="label" for="datedebut">Date de début:</label>
+    <input class="input" type="date" id="datedebut" name="datedebut" formControlName="datedebut" [value]="selectedMission?.datedebut" required>
+    </div>
+  </td>
+
+  <td>
+    <div class="group">
+    <label class="label" for="datefin">Date de fin:</label>
+    <input class="input" type="date" id="datefin" name="datefin" formControlName="datefin" [value]="selectedMission?.datefin" required>
+    </div>
+  </td>
+</tr>
+<br>
+
+<tr>
+
+  <div class="group">
+     <label class="label" for="tjm">TJM:</label>
+     <input class="input" type="text" id="tjm" name="tjm" formControlName="tjm" [value]="selectedMission?.tjm" required>
+  </div>
+<br>
+
+</tr>
+<label class="label" class="form-label" for="clientid"> Client : </label>
+<select class="input" id="clientid" class="form-input" formControlName="clientid" (change)="fillCode()" [value]="selectedMission?.clientid" required>
+  <option value="all">Toutes les Clients</option>
+  <option *ngFor="let client of Clients" [value]="client.id">{{ client.libelle }}</option>
+</select>
+
+
+
+
+<label class="label" class="form-label" for="salariesid"> Salariés : </label>
+      <select class="input" id="salariesid" class="form-input" formControlName="salariesid" (change)="fillCode()" [value]="selectedMission?.salariesid"  required>
+    <option value="all">Toutes les Salariés</option>
+    <option *ngFor="let salaries of Salariess" [value]="salaries.id">{{ salaries.nom }}.{{ salaries.prenom }}
+    </option>
+</select>
+
+
+<br>
+
+<br><br>
+<tr>
+
+
+
+
+
+
+
+
+  </tr>
+    <br><br>
+  <div class="group">
+    <button (click)="updateMission()">Edit</button>
+
+  </div>
+  </div>
+</div>
+</div>
+
+</form>
+</body>
+

@@ -5,45 +5,56 @@
 <body>
 
     <app-navigate></app-navigate>
-  
+
     <form [formGroup]="myForm" class='myfor'>
       <div class="login-wrap1">
         <div class="login-html">
           <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Salarie</label>
           <div class="login-form">
-     
-                  
-                        <tr>     
-                          <td>   
+
+
+                        <tr>
+                          <td>
                           <div class="group">
                           <label class="label" for="prenom">Prénom:</label>
-                           <input class="input" type="text" name="prenom" formControlName="prenom" [value]="selectedSalaries?.prenom" required> 
+                           <input  class="input" type="text" name="prenom" formControlName="prenom" [value]="selectedSalaries?.prenom" required>
                           </div>
-                        </td>  
-                      <td>  
+                        </td>
+                      <td>
                           <div class="group">
-                          <label class="label" for="nom">Nom:</label>   
+                          <label class="label" for="nom">Nom:</label>
                           <input class="input"  type="text" name="nom" formControlName="nom" [value]="selectedSalaries?.nom" required>
                           </div>
-                        </td>  
-                      <td>  
+                        </td>
+                      <td>
                             <div class="group">
                           <label class="label" for="dateNaiss">dateNaiss:</label>
                            <input class="input"  type="date" name="dateNaiss" formControlName="dateNaiss" [value]="selectedSalaries?.dateNaiss" required >
                             </div>
-                      </td>  
+                      </td>
                         </tr><br>
-                       
-                      
-                        <tr>                     
-                        <label class="label" for="pays">Pays:</label>                 
-                        
-                            <div class="countrys">
-                              <mat-select-country class="input" 
-                                                  (onCountrySelected)="onCountrySelected($event)">
+
+
+                        <tr>
+                        <!--<label class="label" for="pays">Pays:</label>-->
+
+                            <!-- <div class="countrys">
+                              <mat-select-country class="input"   (onCountrySelected)="onCountrySelected($event)">
                               </mat-select-country>
-                            </div>
-                          
+                            </div> -->
+
+
+                             <!--<mat-form-field appearance="fill" >
+                              <mat-label>Country</mat-label>
+                              <mat-select [value]="selectedCountry"  (change)="onCountrySelected(selectedCountry)">
+                                <mat-option *ngFor="let country of countries" [value]="country.value">
+                                  {{ country.viewValue }}
+                                </mat-option >
+                              </mat-select>
+                            </mat-form-field>-->
+
+
+
                         </tr>
                       <tr>
                         <div class="group">
@@ -61,50 +72,54 @@
                         </td>
                         <td>
                             <div class="group">
-                          <label class="label" for="numSS">NumSS:</label> 
+                          <label class="label" for="numSS">NumSS:</label>
                            <input class="input"  type="text" name="numSS" formControlName="numSS" [value]="selectedSalaries?.numSS" required>
                               </div>
                             </td>
+                            <td>
+                              <div class="group">
+                                <label class="label" for="emploi">Emploi:</label>
+                                 <input class="input"  type="text" name="emploi" formControlName="emploi" [value]="selectedSalaries?.emploi" required>
+                              </div>
+                            </td>
                         </tr><br>
-                        
+
                         <tr>
                           <td>
                           <div class="group">
-                        <label class="label" for="dateEntre">Date d'entrée:</label> 
+                        <label class="label" for="dateEntre">Date d'entrée:</label>
                          <input class="input" type="date" name="dateEntre" formControlName="dateEntre" [value]="selectedSalaries?.dateEntre" required>
                         </div>
                       </td>
                     <td>
                           <div class="group">
-                          <label class="label" for="dateSortie">Date de sortie:</label> 
+                          <label class="label" for="dateSortie">Date de sortie:</label>
                            <input class="input"  type="date" name="dateSortie" formControlName="dateSortie" [value]="selectedSalaries?.dateSortie" required>
                         </div>
                       </td>
                         </tr>
                         <br>
-                        <td>
-                        <div class="group">
-                          <label class="label" for="emploi">Emploi:</label> 
-                           <input class="input"  type="text" name="emploi" formControlName="emploi" [value]="selectedSalaries?.emploi" required>
-                        </div>
-                      </td>
-                    <td>
+
+                    <br>
+
+
+                        <tr>
+
+
+                          <td>
                             <div class="group">
                           <label class="label" for="position">Position:</label>
-                         
+
                               <input class="input"  type="text" name="position" formControlName="position" [value]="selectedSalaries?.position" required
                                   (input)="updateCoefficient($event)">
-                          
-                       
-                        </div>
-                      </td><br>
 
-                        
-                        <tr>
+
+                        </div>
+                      </td>
                           <td>
                           <div class="group">
-                        <label  class="label" for="coefficient">coefficient:</label>   
-                          
+                        <label  class="label" for="coefficient">coefficient:</label>
+
                             <ng-container *ngIf="coefficientOptions.length> 0; else coefInput">
                                 <select name="coefficient" formControlName="coefficient" class='custom-select'>
                                     <option *ngFor="let option of coefficientOptions" [value]="option">{{ option }}</option>
@@ -113,37 +128,38 @@
                             <ng-template #coefInput>
                                 <input class="input"  type="text" name="coefficient" formControlName="coefficient" [value]="selectedSalaries?.coefficient" required>
                             </ng-template>
-                          
+
                           </div>
                         </td>
                          <td>
                           <div class="group">
                         <label class="label" for="statut">Statut:</label>
-                         
+
                           <textarea class="input"  type="text" name="statut" formControlName="statut" autocomplete="off" readonly  [value]="selectedSalaries?.statut" required></textarea>
                           <span *ngIf="myForm.get('statut')?.errors?.['paragraph']" class="paragraph">{{ myForm.get('statut')?.errors?.['paragraph'] }}</span>
-                          
+
 
                           </div>
                         </td>
-                        </tr>
-                 
-           
 
-                        <div class="group">
-                            <input type="button" class="button"value="update" (click)="updateSalary()" routerLink="/search">
-                        </div>
-                 
+                        </tr>
+                        <br>
+                        <br>
+                        <button (click)="updateSalary()">
+                          Sauvgarder
+                        </button>
+
+
+
 
                   </div>
                 </div>
-         
-   
-          
+
+
+
               </div>
-         
-            
+
+
             </form>
             </body>
-            
-              
+

@@ -1,20 +1,21 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Salaries } from '../Models/Salaries';
 import { SalariesService } from '../Services/Salaries.service';
-import {FormControl} from '@angular/forms';
-import {Country} from '@angular-material-extensions/select-country'; 
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-salaries',
   templateUrl: './salaries.component.html',
-  styleUrls: ['./salaries.component.css']
+  styleUrls: ['./salaries.component.css'],
+
 })
 export class SalariesComponent implements OnInit {
- 
+  countries: any[] = [];
 
- 
+
+
   Salaries: Salaries = {
     id: "",
     pays: "",
@@ -32,11 +33,10 @@ export class SalariesComponent implements OnInit {
     coefficient: "",
   }
 
- 
+
   searchText: string = '';
 
   myForm!: FormGroup;
-  router: any;
   showParagraph: boolean | undefined;
 
   countryFormControl = new FormControl();
@@ -44,11 +44,14 @@ export class SalariesComponent implements OnInit {
   currentDate: string = '';
   coefficientOptions: any[] = [];
 
-  constructor(private fb: FormBuilder, private SalariesService: SalariesService, private datePipe: DatePipe) { 
+  constructor(private fb: FormBuilder, private SalariesService: SalariesService, private datePipe: DatePipe, private router: Router) {
     this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd') || ''}
- 
+
   ngOnInit(): void {
-   
+
+
+
+
 
     this.myForm = this.fb.group({
       prenom: [''],
@@ -77,11 +80,11 @@ export class SalariesComponent implements OnInit {
     const ville = formData.ville;
     const rue = formData.rue;
     const codePostal = formData.codePostal;
-    
+
     this.Salaries.adresse = `${ville}/${rue}/${codePostal}`;
         console.log("Adresse complète: " + this.Salaries.adresse);
   }
-  
+
 
  submitForm(): void {
     const prenom = this.myForm.get('prenom')?.value;
@@ -148,16 +151,14 @@ export class SalariesComponent implements OnInit {
     this.myForm.get('coefficient')?.setValue(coefficientValue);
     this.myForm.get('statut')?.setValue(paragraph);
     // Assurez-vous de ne définir la valeur que si le tableau coefficientOptions est non vide
-    if (this.coefficientOptions.length > 0) {
-      this.myForm.get('coefficientOptions')?.setValue(this.coefficientOptions[0]);
-  }
+
 
     }
 
 
 
 
-  
+
   save(): void {
     const formData = this.myForm.value;
     const ville = formData.ville;
@@ -180,12 +181,14 @@ export class SalariesComponent implements OnInit {
       coefficient: this.myForm.get('coefficient')?.value,
       pays: this.myForm.get('pays')?.value,
 
-    };
 
+    };
+console.log(bodyData);
     this.SalariesService.create(bodyData).subscribe(
       (res: any) => {
-        console.log('Salary created successfully:', res);
         console.log(bodyData);
+        console.log('Salary created successfully:', res);
+        this.router.navigate(["/search"]);
 
       },
       (error: any) => {
@@ -193,10 +196,6 @@ export class SalariesComponent implements OnInit {
       }
     );
   }
-  onCountrySelected(country: Country) {
-    const countryName = country.name;
-    this.myForm.get('pays')?.setValue(countryName); // Mettre à jour l'attribut 'adresse' avec le nom du pays
-    console.log(countryName);
-  }
+
 
 }

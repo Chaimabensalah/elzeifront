@@ -1,12 +1,11 @@
 export class Mission {
-
     id: string;
     datedebut: string;
     datefin: string;
     tjm: string;
     codemission: string;
-    clientid: string;
-    salariesid: string;
+    clientid: any;
+    salariesid: any;
 
     constructor(
       id: string,
@@ -14,9 +13,9 @@ export class Mission {
       datedebut: string,
       datefin: string,
       tjm: string,
-      clientid: string,
-      salariesid: string,
-     
+      clientid: any,
+      salariesid: any,
+
     ) {
       this.id = id;
       this.codemission = codemission;

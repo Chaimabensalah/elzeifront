@@ -1,22 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { NavigateComponent } from './navigate/navigate.component';
-import { ListComponent } from './list/list.component';
-import { SimulateurdetailsComponent } from './simulateurdetails/simulateurdetails.component';
-import { SalariesComponent } from './salaries/salaries.component';
-import { SearchComponent } from './search/search.component';
-import { SalariesdetailsComponent } from './salariesdetails/salariesdetails.component';
-import { PdfdetailsComponent } from './pdfdetails/pdfdetails.component';
 import { ClientComponent } from './client/client.component';
-import { CRAComponent } from './cra/cra.component';
-import { MissionComponent } from './mission/mission.component';
-import { ClientlistComponent } from './clientlist/clientlist.component';
-import { MissionlistComponent } from './missionlist/missionlist.component';
-import { CralistComponent } from './cralist/cralist.component';
 import { ClientdetailsComponent } from './clientdetails/clientdetails.component';
+import { ClientlistComponent } from './clientlist/clientlist.component';
+import { CountrySearchComponentComponent } from './country-search-component/country-search-component.component';
+import { CRAComponent } from './cra/cra.component';
+import { CralistComponent } from './cralist/cralist.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { DialogAnimationsExampleDialogComponent } from './dialog-animations-example-dialog/dialog-animations-example-dialog.component';
+import { DialogEditComponent } from './dialog-edit/dialog-edit.component';
+import { HomeComponent } from './home/home.component';
+import { ListComponent } from './list/list.component';
+import { LoginComponent } from './login/login.component';
+import { MissionComponent } from './mission/mission.component';
+import { MissiondetailsComponent } from './missiondetails/missiondetails.component';
+import { MissionlistComponent } from './missionlist/missionlist.component';
+import { MonthlyDataComponent } from './monthly-data/monthly-data.component';
+import { NavigateComponent } from './navigate/navigate.component';
+import { PdfdetailsComponent } from './pdfdetails/pdfdetails.component';
+import { SalariesComponent } from './salaries/salaries.component';
+import { SalariesdetailsComponent } from './salariesdetails/salariesdetails.component';
+import { SearchComponent } from './search/search.component';
+import { SimulateurdetailsComponent } from './simulateurdetails/simulateurdetails.component';
+import { CradetailsComponent } from './cradetails/cradetails.component';
 
 
 const routes: Routes = [
@@ -38,6 +44,13 @@ const routes: Routes = [
   {path:"cralist",component:CralistComponent},
   {path:"clientdetails/:id",component:ClientdetailsComponent},
   {path:"DialogAnimationsExampleDialog",component:DialogAnimationsExampleDialogComponent},
+  {path:"dashboard",component:DashboardComponent},
+  {path:"missiondetails/:id",component:MissiondetailsComponent},
+  {path:"dialog-edit",component:DialogEditComponent},
+  {path:"countrySearch",component:CountrySearchComponentComponent},
+  {path:"monthly-data",component:MonthlyDataComponent},
+  {path:"cradetails/:id",component:CradetailsComponent},
+
 
 
 ];
