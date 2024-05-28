@@ -18,7 +18,7 @@ export class CRAService {
 
 
   constructor(private http: HttpClient) { }
-  getCRAById(id: number): Observable<CRA> {
+  getCRAById(id: string): Observable<CRA> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<CRA>(url);
   }
@@ -77,7 +77,10 @@ export class CRAService {
       })
     );
   }
-
+  getCRAByMissionId(id: string): Observable<CRA[]> {
+    const url = `${this.baseUrl}/user/${id}`;
+    return this.http.get<CRA[]>(url);
+  }
 }
 
 

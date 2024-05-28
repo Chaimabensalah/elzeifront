@@ -6,7 +6,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CRA } from '../Models/CRA';
 import { Mission } from '../Models/Mission';
 import { MonthlyData } from '../Models/MonthlyData';
-import { Salaries } from '../Models/Salaries';
 import { CRAService } from '../Services/CRA.service';
 import { ClientService } from '../Services/Client.service';
 import { MissionService } from '../Services/Mission.service';
@@ -27,6 +26,10 @@ export class MonthlyDataComponent {
       id: "",
       facture:"",
       cout: "",
+      fraisrepas: "",
+      fraiskilo: "",
+      chargesalarial: "",
+      chargeannexe: "",
       autre: "",
       totalPercu: "",
       missionid:"",
@@ -39,32 +42,40 @@ export class MonthlyDataComponent {
     coefficientOptions: string[] = [];
 
     selectedCRA: CRA | undefined;
-    selectedSalaries: Salaries | undefined;
+    selectedSalaries: any;
     selectedMission: Mission | undefined;
 
     SalariesId: any;
     missionid: any;
     craid: any;
+    s:any;
 
-    constructor(private fb: FormBuilder,private CRAService: CRAService,private MonthlyDataService: MonthlyDataService, private SalariesService: SalariesService, private ClientService: ClientService,  private MissionService: MissionService , private activatedRoute: ActivatedRoute ,
-      private router: Router,private http: HttpClient, private datePipe: DatePipe) {this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd') || ''} // Inject SimulatorService
+    constructor(private fb: FormBuilder,private CRAService: CRAService,private MonthlyDataService: MonthlyDataService, private salariesService: SalariesService, private ClientService: ClientService,  private MissionService: MissionService , private activatedRoute: ActivatedRoute ,
+      private router: Router,private http: HttpClient, private datePipe: DatePipe) {this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd') || '';
+
+
+      } // Inject SimulatorService
       Clients:any;
       Salariess:any;
-      cras:any;
+      cras!:any;
       MissionS:any;
-
-
 
 
       ngOnInit(): void {
         this.myForm = this.fb.group({
-          facture: [''],
-          cout: [''],
-          autre: [''],
-          totalPercu: [''],
+          id: [''],
           Salariesid: [''],
           missionid: [''],
-          crasid: [''] // Ajoutez ce champ pour le code de la mission
+          crasid: [''] ,
+          facture: [''],
+          autre: [''],
+          totalPercu: [''],
+          cout: [''],
+          fraisrepas: [''],
+          fraiskilo: [''],
+          chargesalarial: [''],
+          chargeannexe: [''],
+
         });
         this.listSalaries();
         this.listMission();
@@ -84,20 +95,27 @@ export class MonthlyDataComponent {
         // Créer l'objet de données à envoyer au backend
         const bodyData = {
           id: formData.id,
-          cout: formData.cout,
-          facture: formData.facture,
-          autre: formData.autre,
-          totalPercu: formData.totalPercu,
-
           salariesid: {
             id: formData.salariesid,
-          },
-          craid: {
-            id: formData.craid,
           },
           missionid: {
             id: formData.missionid,
           },
+          craid: {
+            id: formData.craid,
+          },
+          facture: formData.facture,
+          autre: formData.autre,
+          totalPercu: formData.totalPercu,
+          cout: formData.cout,
+          fraisrepas: formData.fraisrepas,
+          fraiskilo: formData.fraiskilo,
+          chargesalarial: formData.chargesalarial,
+          chargeannexe: formData.chargeannexe,
+
+
+
+
         };
         // Envoyer les données au backend
         console.log(bodyData);
@@ -142,7 +160,7 @@ export class MonthlyDataComponent {
 
 
       listSalaries() {
-        this.SalariesService.getSalariess().subscribe((res: any) => {
+        this.salariesService.getSalariess().subscribe((res: any) => {
           this.Salariess = res;
         });
       }
@@ -161,5 +179,73 @@ export class MonthlyDataComponent {
 selectSalaries(){
   console.log(this.users.value);
 }
+
+
+selectedMissionsalaries: Mission | undefined;
+
+chosesalaries(event:any){
+const sid = event.target as HTMLSelectElement;
+this.selectedSalaries=this.Salariess.filter((salaries:any)=> salaries.id == sid.value as string);
+
+this.salariesService.getmissionbyuserid(sid.value as string).subscribe((res:any)=>{
+
+this.selectedMissionsalaries=res;
+this.CRAService.getCRAByMissionId(res.id).subscribe((res:CRA[])=>{
+  this.cras=res;
+  this.selectedCRA = this.cras[0];
+  this.loadpdf();
+});
+});
     }
 
+    chosedCra(event:any){
+        this.selectedCRA = this.cras.find((cra: any) => cra.id === Number(event.target.value));
+    }
+pdfssalaries!:any;
+
+loadpdf(){
+  this.salariesService.getPdfs().subscribe(
+    (res:any[]) => {
+        const pdfs = res.filter((salaries)=>salaries.matricule==this.selectedSalaries?.matricule );
+        this.pdfssalaries=res[0];
+        console.log(res);
+        console.log(this.selectedSalaries?.matricule);
+    },
+    (error: any) => {
+      console.error('Erreur lors du chargement des détails du simulateur', error);
+    }
+  );
+}
+submitForm(): void {
+  const tjm = this.selectedMissionsalaries?.tjm;
+  const nbjour = this.selectedCRA?.nbjour;
+  const netpaye = this.myForm.get('netpaye')?.value;
+  const fraisrepas = this.myForm.get('fraisrepas')?.value;
+  const fraiskilo = this.myForm.get('fraiskilo')?.value;
+  const autre = this.myForm.get('autre')?.value;
+  const chargesalarial = this.myForm.get('chargesalarial')?.value;
+  const chpatroniales = this.myForm.get('chpatroniales')?.value;
+
+  console.log(tjm);
+
+//les formules de ecrant1
+const result1: number = Number(tjm)*Number(nbjour);
+const valtotalpercu :  number = Number(netpaye)+Number(fraisrepas)+Number(fraiskilo)+Number(autre) ;
+const valcout :  number = Number(netpaye)+Number(fraisrepas)+Number(fraiskilo)+Number(autre)+Number(chargesalarial)+Number(chpatroniales) ;
+
+console.log(tjm);
+console.log(nbjour);
+console.log('valtotalpercu',valtotalpercu);
+console.log('valcout',valcout);
+console.log('valcout',result1);
+
+
+
+
+  this.myForm.get('facture')?.setValue(result1);
+  this.myForm.get('totalPercu')?.setValue(valtotalpercu);
+  this.myForm.get('cout')?.setValue(valcout);
+
+}
+
+  }

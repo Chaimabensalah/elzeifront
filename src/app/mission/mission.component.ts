@@ -132,7 +132,8 @@ fillCode(): void {
     const salariesNames = selectedSalaries?.map(salaries => salaries.nom+salaries.prenom);
 
     // Step 3: Join the names with " - " as the separator
-    const salariesString = salariesNames?.join(" / ");    console.log(this.Clients[0].id);
+    const salariesString = salariesNames?.join(" / ");
+    console.log(this.Clients[0].id);
     console.log(selectedClientLibelle);
 
 

@@ -1,11 +1,11 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Mission } from '../Models/Mission';
+import { ClientService } from '../Services/Client.service';
 import { MissionService } from '../Services/Mission.service';
 import { SalariesService } from '../Services/Salaries.service';
-import { ClientService } from '../Services/Client.service';
 
 
 @Component({
@@ -15,6 +15,9 @@ import { ClientService } from '../Services/Client.service';
 })
 export class MissiondetailsComponent {
 
+  users = new FormControl([]);
+  clientss = new FormControl([]);
+
 
   selectedMission?: Mission;
   myForm!: FormGroup;
@@ -22,10 +25,13 @@ export class MissiondetailsComponent {
   coefficientOptions: string[] = [];
   countryFormGroup: FormGroup | undefined;
   currentDate: string = '';
-  constructor(private fb: FormBuilder,private SalariesService: SalariesService, private ClientService: ClientService, private MissionService: MissionService, private activatRoute:ActivatedRoute,private datePipe: DatePipe,private router:Router ) {this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd') || ''} // Inject SimulatorService
+  constructor(private fb: FormBuilder,private SalariesService: SalariesService, private ClientService: ClientService, private MissionService: MissionService, private activatRoute:ActivatedRoute,private datePipe: DatePipe,private router:Router ) {this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd') || ''
+
+  } // Inject SimulatorService
    id:string="";
    Clients:any;
    Salariess:any;
+
   ngOnInit(): void {
     this.activatRoute.params.subscribe(params => {
       this.id= params['id']; // Extraire simulateurId des paramètres et le convertir en nombre
@@ -52,50 +58,51 @@ export class MissiondetailsComponent {
       (Mission: Mission) => {
 
         this.selectedMission = Mission;
+        console.log(this.selectedMission);
+        this.listClient();
+        this.listSalaries();
       },
       (error: any) => {
         console.error('Erreur lors du chargement des détails du Mission', error);
+
       }
     );
   }
-
-  updateMission(): void {
+   updateMission(): void {
     if (this.selectedMission) {
-      const id = this.selectedMission.id;
+      const id = this.selectedMission?.id;
       const updatedData = {
           datedebut: this.myForm.get('datedebut')?.value,
           datefin: this.myForm.get('datefin')?.value,
           tjm: this.myForm.get('tjm')?.value,
           codemission: this.myForm.get('codemission')?.value,
-          clientid: this.myForm.get('clientid')?.value,
-          salariesid: this.myForm.get('salariesid')?.value,
+
+          clientid: {
+            id: this.myForm.get('clientid')?.value,
+          },
+          salariesid:this.users?.value?.map(user => ({ id: user }))
       };
       if (updatedData.datedebut==''){
-        updatedData.datedebut=this.selectedMission.datedebut;
+        updatedData.datedebut=this.selectedMission?.datedebut;
       }
       if (updatedData.datefin==''){
-        updatedData.datefin=this.selectedMission.datefin;
+        updatedData.datefin=this.selectedMission?.datefin;
       }
       if (updatedData.tjm==''){
-        updatedData.tjm=this.selectedMission.tjm;
+        updatedData.tjm=this.selectedMission?.tjm;
       }
       if (updatedData.codemission==''){
-        updatedData.codemission=this.selectedMission.codemission;
+        updatedData.codemission=this.selectedMission?.codemission;
       }
-      if (updatedData.clientid==''){
-        updatedData.clientid=this.selectedMission.clientid;
+      if (updatedData.clientid.id==''){
+        updatedData.clientid.id=this.selectedMission?.clientid.id;
       }
-      if (updatedData.salariesid==''){
-        updatedData.salariesid=this.selectedMission.salariesid;
-      }
-
       console.log(updatedData);
       this.MissionService.update(this.id, updatedData).subscribe(
         (response: Mission) => {
           // Handle successful update response
           this.router.navigate(["/missionlist"]);
           console.log('Mission updated successfully:', response);
-
 
         },
         (error: any) => {
@@ -108,6 +115,7 @@ export class MissiondetailsComponent {
   listClient() {
     this.ClientService.getClients().subscribe((res: any) => {
       this.Clients = res;
+      console.log(this.Clients = res);
     });
   }
 
@@ -115,33 +123,57 @@ export class MissiondetailsComponent {
   listSalaries() {
     this.SalariesService.getSalariess().subscribe((res: any) => {
       this.Salariess = res;
+      this.users=new FormControl(this.selectedMission?.salariesid.map((salariesid:any)=>salariesid.id));
+           console.log(this.users);
     });
   }
   fillCode(): void {
     // Récupérez les valeurs sélectionnées des combobox
     const selectedClientLibelle = this.myForm.get('clientid')?.value;
-    const selectedSalariesNom = this.myForm.get('salariesid')?.value;
-    console.log(this.Clients);
-    console.log("2"+selectedSalariesNom);
+    const selectedSalariesNom = this.users?.value;
+    console.log(this.myForm.get('clientid')?.value);
+
 
 
     // Utilisez le libellé sélectionné pour trouver le client correspondant
     const selectedClient = this.Clients.find((client: any) => client.id === Number(selectedClientLibelle));
-    const selectedSalaries = this.Salariess.find((Salaries: any) => Salaries.id === Number(selectedSalariesNom));
-    console.log(this.Clients[0].id);
-    console.log(selectedClientLibelle);
+    // Step 1: Find the selected salaries
+    const selectedSalaries = this.users?.value?.map(selectedId =>
+      this.Salariess.find((salaries: any) => salaries.id === Number(selectedId))
+    );
+
+    // Step 2: Extract the 'nom' property from each selected salary
+    const salariesNames = selectedSalaries?.map(salaries => salaries.nom+salaries.prenom);
+
+    // Step 3: Join the names with " - " as the separator
+    const salariesString = salariesNames?.join(" / ");
+
 
 
     // Assurez-vous que le client sélectionné existe
 
         // Concaténez le libellé du client et le nom des salariés pour former le code de la mission
-        const codemission = `${selectedClient?.libelle} - ${selectedSalaries?.nom}`;
-        console.log(codemission);
+        const codemission = `${selectedClient?.libelle} / ${salariesString}`;
+
 
         // Mettez à jour la valeur du champ "Code Mission" avec le code de la mission
         this.myForm.patchValue({ codemission: codemission });
+
 }
 updateSelectedClient() {
   const sc =this.Clients.find((client:any)=> client.id===this.selectedclient)
   }
+
+
+
+selectSalaries(){
+  console.log(this.users.value);
 }
+
+selectClient(){
+  console.log(this.clientss.value);
+}
+
+}
+
+

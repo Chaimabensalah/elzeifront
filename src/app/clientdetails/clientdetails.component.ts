@@ -13,15 +13,14 @@ import { ClientService } from '../Services/Client.service';
   styleUrl: './clientdetails.component.css'
 })
 export class ClientdetailsComponent {
-
-  selectedClient?: Client;
+    selectedClient?: Client;
   myForm!: FormGroup;
   showParagraph: boolean | undefined;
   coefficientOptions: string[] = [];
   countryFormControl = new FormControl();
   countryFormGroup: FormGroup | undefined;
   currentDate: string = '';
-  selectedCountry: Country | undefined;
+  selectedCountry: string | undefined;
   constructor(private fb: FormBuilder, private ClientService: ClientService, private activatRoute:ActivatedRoute,private datePipe: DatePipe,private router:Router ) {this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd') || ''} // Inject SimulatorService
    id:string="";
   ngOnInit(): void {

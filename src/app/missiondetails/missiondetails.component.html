@@ -15,7 +15,7 @@
 <td>
   <div class="group">
   <label class="label" for="codemission">codeMission:</label>
-  <input class="input" type="text" id="codemission" name="codemission" formControlName="codeMission" [value]="selectedMission?.codemission" required>
+  <input class="input" type="text" id="codemission" name="codemission" formControlName="codemission" [value]="selectedMission?.codemission" required>
   </div>
 </td>
 
@@ -49,40 +49,39 @@
 <br>
 
 </tr>
+<tr>
+  <td>
 <label class="label" class="form-label" for="clientid"> Client : </label>
-<select class="input" id="clientid" class="form-input" formControlName="clientid" (change)="fillCode()" [value]="selectedMission?.clientid" required>
-  <option value="all">Toutes les Clients</option>
-  <option *ngFor="let client of Clients" [value]="client.id">{{ client.libelle }}</option>
+<select class="input" id="clientid" class="form-input" formControlName="clientid" (change)="fillCode()" [value]="selectedMission?.clientid.id" required>
+  <option *ngFor="let client of Clients" [value]="client.id" [selected]="client.id===id" >{{ client.libelle }}</option>
 </select>
+</td>
 
 
 
+<td>
+<div  class="group">
+  <label class="label" class="form-label" for="salariesid"> Salaries : </label>
+  <mat-form-field>
+    <mat-label>salariesid</mat-label>
+    <mat-select [formControl]="users" multiple (change)="selectSalaries()">
+      <mat-select-trigger>
+        {{fillCode()}}
+      </mat-select-trigger>
+      @for (topping of Salariess; track topping) {
+    <mat-option [value]="topping.id">{{topping.nom}}.{{topping.prenom}}</mat-option>
+  }
+    </mat-select>
+  </mat-form-field>
 
-<label class="label" class="form-label" for="salariesid"> Salariés : </label>
-      <select class="input" id="salariesid" class="form-input" formControlName="salariesid" (change)="fillCode()" [value]="selectedMission?.salariesid"  required>
-    <option value="all">Toutes les Salariés</option>
-    <option *ngFor="let salaries of Salariess" [value]="salaries.id">{{ salaries.nom }}.{{ salaries.prenom }}
-    </option>
-</select>
-
-
+</div>
 <br>
 
-<br><br>
-<tr>
 
-
-
-
-
-
-
-
+</td>
   </tr>
-    <br><br>
   <div class="group">
     <button (click)="updateMission()">Edit</button>
-
   </div>
   </div>
 </div>

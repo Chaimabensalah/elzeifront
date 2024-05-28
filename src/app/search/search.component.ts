@@ -57,13 +57,15 @@ export class SearchComponent {
       if (result) {
     this.router.navigate(['salariesdetails', salarie.id]);
   }})
+
 }
 
 
 
 
-
-
+viewDetails2(salarie: Salaries): void {
+  this.router.navigate(['pdfsalaries', salarie.id]);
+}
 
 
 

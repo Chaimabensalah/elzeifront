@@ -38,8 +38,11 @@ export class CRAComponent implements OnInit {
 
 
     ngOnInit(): void {
+      const currentDate = new Date();
+    // getMonth() returns month index starting from 0 (January) to 11 (December)
+  const month = currentDate.getMonth() + 1;
         this.myForm = this.fb.group({
-          mois: [''],
+          mois: [month],
           nbjour: [''],
           missionid: [''],
           pays: [''],

@@ -22,7 +22,8 @@ import { SalariesComponent } from './salaries/salaries.component';
 import { SalariesdetailsComponent } from './salariesdetails/salariesdetails.component';
 import { SearchComponent } from './search/search.component';
 import { SimulateurdetailsComponent } from './simulateurdetails/simulateurdetails.component';
-import { CradetailsComponent } from './cradetails/cradetails.component';
+import { PdfsalariesComponent } from './pdfsalaries/pdfsalaries.component';
+import { CradetailsComponent  } from './cradetails/cradetails.component';
 
 
 const routes: Routes = [
@@ -49,10 +50,8 @@ const routes: Routes = [
   {path:"dialog-edit",component:DialogEditComponent},
   {path:"countrySearch",component:CountrySearchComponentComponent},
   {path:"monthly-data",component:MonthlyDataComponent},
-  {path:"cradetails/:id",component:CradetailsComponent},
-
-
-
+  {path:"cradetails",component:CradetailsComponent  },
+  {path:"pdfsalaries/:id",component:PdfsalariesComponent},
 ];
 
 @NgModule({

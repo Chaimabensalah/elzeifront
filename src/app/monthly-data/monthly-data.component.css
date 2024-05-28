@@ -257,6 +257,12 @@ body {
 
 
 
-
-
-
+/*mission output*/
+  .output-padding {
+    padding: 10px 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.527);
+    width: 300px;
+    margin-bottom: .3rem;
+    background: rgba(216, 216, 216, 0.9);
+  }

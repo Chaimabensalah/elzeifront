@@ -31,7 +31,7 @@
            <div class="text-box">
              <div class="text-area">
                <tr>
-               <output class="input" formControlName="Salaries"><span *ngFor="let salary of selectedMission?.salariesid">/{{salary.nom}}</span></output><br>
+               <output class="input" formControlName="Salaries"><span *ngFor="let salary of selectedMission?.salariesid">{{salary.nom}}</span></output><br>
              </tr>
            </div>
          </div>
@@ -74,7 +74,7 @@
       <td>
           <div class="group">
              <label  class="label"  for="mois">Mois:</label>
-             <input  class="input" type="month" id="mois" name="mois" formControlName="mois"   required>
+             <input  class="input" type="month" max="12" min="1" id="mois" name="mois" formControlName="mois"   required>
           </div>
         </td>
           <td>

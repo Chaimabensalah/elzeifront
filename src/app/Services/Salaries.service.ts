@@ -123,7 +123,7 @@ export class SalariesService {
 
 
 
-  getmissionbyuserid(id : number): Observable<Mission> {
+  getmissionbyuserid(id : any): Observable<Mission> {
     return this.http.get<Mission>("http://localhost:8080/api/Mission/user/"+id);
   }
 

@@ -40,6 +40,7 @@ import { SearchComponent } from './search/search.component';
 import { SimulateurdetailsComponent } from './simulateurdetails/simulateurdetails.component';
 import { MonthlyDataComponent } from './monthly-data/monthly-data.component';
 import { CradetailsComponent } from './cradetails/cradetails.component';
+import { PdfsalariesComponent } from './pdfsalaries/pdfsalaries.component';
 
 
 
@@ -69,8 +70,7 @@ import { CradetailsComponent } from './cradetails/cradetails.component';
     CountrySearchComponentComponent,
     MonthlyDataComponent,
     CradetailsComponent,
-
-
+    PdfsalariesComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,8 +90,6 @@ import { CradetailsComponent } from './cradetails/cradetails.component';
     MatFormFieldModule,
     MatSelectModule,
     NgxCountriesDropdownModule
-
-
   ],
 
   providers: [

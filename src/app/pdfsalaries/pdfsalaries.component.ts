@@ -1,17 +1,16 @@
+
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Salaries } from '../Models/Salaries';
 import { SalariesService } from '../Services/Salaries.service';
-
-
 @Component({
-  selector: 'app-salariesdetails',
-  templateUrl: './salariesdetails.component.html',
-  styleUrls: ['./salariesdetails.component.css']
+  selector: 'app-pdfsalaries',
+  templateUrl: './pdfsalaries.component.html',
+  styleUrl: './pdfsalaries.component.css'
 })
-export class SalariesdetailsComponent implements OnInit {
+export class PdfsalariesComponent {
   employeeForm!: FormGroup; // Define FormGroup
   selectedSalaries?: Salaries;
   myForm!: FormGroup;
