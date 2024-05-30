@@ -32,10 +32,10 @@
 
           <tbody>
             <tr *ngFor="let mission of missions" [class.selected]="selectedMission === mission">
-              <td>{{ mission.codemission }}</td>
-              <td >{{ mission.datedebut }}</td>
-              <td >{{ mission.datefin }}</td>
-              <td >{{ mission.tjm }}</td>
+              <td (click)="viewDetailsmission(mission)">{{ mission.codemission }}</td>
+              <td (click)="viewDetailsmission(mission)">{{ mission.datedebut }}</td>
+              <td (click)="viewDetailsmission(mission)">{{ mission.datefin }}</td>
+              <td (click)="viewDetailsmission(mission)">{{ mission.tjm }}</td>
 
 
                 <td class="button-container" >

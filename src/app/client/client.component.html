@@ -1,7 +1,10 @@
 
 <body>
     <app-navigate></app-navigate>
- <br>
+    <br>
+    <br>
+    <br>
+    <br>
   <form [formGroup]="myForm" class='myfor' (ngSubmit)="updateAddress()">
 
 
@@ -26,19 +29,17 @@
       </td>
      </tr>
      <br>
-    <label  class="label" for="pays">Pays:</label><br>
-            <mat-select-country class="input"  (onCountrySelected)="onCountrySelected($event)">
+    <label  class="label" for="pays" style="padding-left: 10px; padding-right: 1px;">Pays:</label><br>
+            <mat-select-country class="input" style="padding-left: 10px; padding-right: 1px;" (onCountrySelected)="onCountrySelected($event)">
             </mat-select-country>
-            <br><br>
-
+            <br>
          <tr>
 
 
         <td>
         <div class="group">
-            <label  class="label" for="address">Adresse:</label>
+            <label  class="label" for="address" >Adresse:</label>
             <td>
-
             <input class="input" type="text"  id="ville" name="ville" placeholder="Ville" formControlName="ville" required (input)="updateAddress()"><br>
         </td>
          <td>

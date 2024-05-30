@@ -61,6 +61,9 @@ export class SearchComponent {
 }
 
 
+viewDetailssalarise(salarie: Salaries): void {
+  this.router.navigate(['salariesview', salarie.id]);
+}
 
 
 viewDetails2(salarie: Salaries): void {

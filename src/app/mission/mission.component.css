@@ -133,7 +133,7 @@ width: 20%;
 	border: none;
 	width: 90%;
 	padding: 15px 20px;
-	border-radius: 10px;
+	border-radius: 5px;
 	background: rgba(216, 216, 216, 0.5);
 	font-family: "HelveticaNeueLT Std Lt Cn", Sans-serif;
   }
@@ -216,7 +216,7 @@ width: 20%;
 
   .gray-input {
 	padding: 10px 20px;
-	border-radius: 10px;
+	border-radius: 8px;
 	background: rgba(255, 255, 255, 0.527);
 	width: 500px;
   margin-bottom: .3rem;
@@ -249,4 +249,18 @@ width: 20%;
   /* Optional hover effect for options */
   .form-input option:hover {
 	background-color: rgba(255, 255, 255, 0.2); /* Change background color on hover */
+  }
+  .input2[type="date"] {
+    width: 178px; /* Définissez la largeur souhaitée */
+    color: #000000;
+    margin-right: 50px;
+    margin-left: -20px; /* Ajustez les marges au besoin */
+    margin: auto;
+    font-family: "HelveticaNeueLT Std Lt Cn", Sans-serif;
+    background: rgba(216, 216, 216, 0.9);
+    border: none;
+    padding: 14.2px 20px; /* Ajustez le rembourrage au besoin */
+    border-radius: 5px;
+    background: rgba(216, 216, 216, 0.5);
+
   }

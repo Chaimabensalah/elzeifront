@@ -16,9 +16,7 @@ body {
   position: relative;
   left: 0px;
   right: 200px;
-
-  cursor: pointer;
-
+  cursor: pointer;/*curssorrrrrrrrrrrrrrrrrrrrrrr pointerrrrrrrrrrrr*/
 }
 
 .nav > .nav-header {
@@ -30,6 +28,7 @@ body {
   font-size: 22px;
   color: #000000;
   padding: 10px 10px 10px 10px;
+
 }
 
 .nav > .nav-btn {
@@ -61,11 +60,14 @@ ul {
   display: table;
   width: 600px;
   text-align: center;
+
+
 }
 li {
   display: table-cell;
   position: relative;
   padding: 15px 0;
+
 }
 a {
   color: #fff;
@@ -76,6 +78,7 @@ a {
   position: relative;
   color: #3f3d3d;
   font-family: Arial, sans-serif;
+
 }
 a:after {
   background: none repeat scroll 0 0 transparent;
@@ -154,14 +157,17 @@ a:hover:after {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(209, 248, 206, 0.9);
   min-width: 160px;
   z-index: 1;
+
 }
 
 .nav > .nav-links > a:hover + .dropdown-content,
 .dropdown-content:hover {
   display: block;
+
+
 }
 
 .dropdown-content a {
@@ -170,6 +176,7 @@ a:hover:after {
   text-decoration: none;
   display: block;
   caption-side: bottom;
+
 }
 
 .dropdown-content a:hover {
@@ -178,4 +185,5 @@ a:hover:after {
 .active {
   background-color: #9bd46a; /* Couleur de fond pour la page active */
   color: #ffffff; /* Couleur du texte pour la page active */
+
 }

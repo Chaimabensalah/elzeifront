@@ -21,6 +21,7 @@ import { ClientdetailsComponent } from './clientdetails/clientdetails.component'
 import { ClientlistComponent } from './clientlist/clientlist.component';
 import { CountrySearchComponentComponent } from './country-search-component/country-search-component.component';
 import { CRAComponent } from './cra/cra.component';
+import { CradetailsComponent } from './cradetails/cradetails.component';
 import { CralistComponent } from './cralist/cralist.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DialogAnimationsExampleDialogComponent } from './dialog-animations-example-dialog/dialog-animations-example-dialog.component';
@@ -31,16 +32,19 @@ import { LoginComponent } from './login/login.component';
 import { MissionComponent } from './mission/mission.component';
 import { MissiondetailsComponent } from './missiondetails/missiondetails.component';
 import { MissionlistComponent } from './missionlist/missionlist.component';
+import { MonthlyDataComponent } from './monthly-data/monthly-data.component';
+import { MonthlydatalistComponent } from './monthlydatalist/monthlydatalist.component';
 import { NavigateComponent } from './navigate/navigate.component';
 import { PdfdetailsComponent } from './pdfdetails/pdfdetails.component';
+import { PdfsalariesComponent } from './pdfsalaries/pdfsalaries.component';
 import { RestapiService } from './restapi.service';
 import { SalariesComponent } from './salaries/salaries.component';
 import { SalariesdetailsComponent } from './salariesdetails/salariesdetails.component';
 import { SearchComponent } from './search/search.component';
 import { SimulateurdetailsComponent } from './simulateurdetails/simulateurdetails.component';
-import { MonthlyDataComponent } from './monthly-data/monthly-data.component';
-import { CradetailsComponent } from './cradetails/cradetails.component';
-import { PdfsalariesComponent } from './pdfsalaries/pdfsalaries.component';
+import { ClientviewComponent } from './clientview/clientview.component';
+import { MissionviewComponent } from './missionview/missionview.component';
+import { SalariesviewComponent } from './salariesview/salariesview.component';
 
 
 
@@ -71,6 +75,10 @@ import { PdfsalariesComponent } from './pdfsalaries/pdfsalaries.component';
     MonthlyDataComponent,
     CradetailsComponent,
     PdfsalariesComponent,
+    MonthlydatalistComponent,
+    ClientviewComponent,
+    MissionviewComponent,
+    SalariesviewComponent,
   ],
   imports: [
     BrowserModule,

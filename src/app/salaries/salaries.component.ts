@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Salaries } from '../Models/Salaries';
 import { SalariesService } from '../Services/Salaries.service';
+import { Country } from '@angular-material-extensions/select-country';
 
 @Component({
   selector: 'app-salaries',
@@ -195,6 +196,13 @@ console.log(bodyData);
         console.error('Error occurred while creating salary:', error);
       }
     );
+  }
+
+
+  onCountrySelected(country: Country) {
+    const countryName = country.name;
+    this.myForm.get('pays')?.setValue(countryName); // Mettre à jour l'attribut 'adresse' avec le nom du pays
+    console.log(countryName);
   }
 
 

@@ -5,7 +5,7 @@ export class MonthlyData {
   crasid: any;
   facture: any;
   autre: string;
-  totalPercu: string;
+  totalPercu: any;
   cout: string;
   fraisrepas: string;
   fraiskilo: string;

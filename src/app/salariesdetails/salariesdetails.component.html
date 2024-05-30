@@ -5,7 +5,10 @@
 <body>
 
     <app-navigate></app-navigate>
-
+    <br>
+    <br>
+    <br>
+    <br>
     <form [formGroup]="myForm" class='myfor'>
       <div class="login-wrap1">
         <div class="login-html">
@@ -57,11 +60,22 @@
 
                         </tr>
                       <tr>
-                        <div class="group">
-                      <label class="label" for="adresse">adresse</label>
-                      <input class="input"  type="text" name="adresse" formControlName="adresse" [value]="selectedSalaries?.adresse" required >
-                      </div><br>
+                        <label  class="label" for="pays" style="padding-left: 10px; padding-right: 1px;">Pays:</label><br>
+                        <div class="countrys">
+                            <mat-select-country class="input" formControlName="pays" style="padding-left: 10px; padding-right: 1px;"
+                                                (onCountrySelected)="onCountrySelected($event)">
+                            </mat-select-country>
+                          </div>
+                       
                     </tr>
+
+
+
+
+
+
+
+
 
                         <tr>
                           <td>
@@ -85,7 +99,7 @@
                         </tr><br>
 
                         <tr>
-                          <td>
+                          <td style="padding-left: 15px; padding-right: 27px;">
                           <div class="group">
                         <label class="label" for="dateEntre">Date d'entrée:</label>
                          <input class="input" type="date" name="dateEntre" formControlName="dateEntre" [value]="selectedSalaries?.dateEntre" required>
@@ -161,7 +175,8 @@
 
 
             </form>
+            <br>
 
-           
+
             </body>
 

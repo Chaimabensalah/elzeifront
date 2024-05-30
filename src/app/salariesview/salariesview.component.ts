@@ -5,14 +5,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Salaries } from '../Models/Salaries';
 import { SalariesService } from '../Services/Salaries.service';
 import { Country } from '@angular-material-extensions/select-country';
-
-
 @Component({
-  selector: 'app-salariesdetails',
-  templateUrl: './salariesdetails.component.html',
-  styleUrls: ['./salariesdetails.component.css']
+  selector: 'app-salariesview',
+  templateUrl: './salariesview.component.html',
+  styleUrl: './salariesview.component.css'
 })
-export class SalariesdetailsComponent implements OnInit {
+export class SalariesviewComponent {
+
   employeeForm!: FormGroup; // Define FormGroup
   selectedSalaries?: Salaries;
   myForm!: FormGroup;
@@ -70,11 +69,13 @@ export class SalariesdetailsComponent implements OnInit {
     );
   }
 
+
   onCountrySelected(country: Country) {
     const countryName = country.name;
     this.myForm.get('pays')?.setValue(countryName); // Mettre à jour l'attribut 'adresse' avec le nom du pays
     console.log(countryName);
   }
+
 
   countries = [
     { value: 'usa', viewValue: 'USA' },
@@ -208,6 +209,9 @@ export class SalariesdetailsComponent implements OnInit {
 
       }
 
-    
+
+
   }
+
+
 

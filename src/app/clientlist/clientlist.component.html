@@ -30,10 +30,10 @@
 
           <tbody>
             <tr *ngFor="let client of clients" [class.selected]="selectedClient === client">
-              <td>{{ client.libelle }}</td>
-              <td>{{ client.numtva }}</td>
-              <td>{{ client.address }}</td>
-              <td>{{ client.pays }}</td>
+              <td (click)="viewDetailsclient(client)">{{ client.libelle }}</td>
+              <td (click)="viewDetailsclient(client)">{{ client.numtva }}</td>
+              <td (click)="viewDetailsclient(client)">{{ client.address }}</td>
+              <td (click)="viewDetailsclient(client)">{{ client.pays }}</td>
 
 
               <td class="button-container">

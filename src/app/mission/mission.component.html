@@ -2,6 +2,10 @@
   <body>
   <app-navigate></app-navigate>
 <br>
+<br>
+<br>
+<br>
+
   <form [formGroup]="myForm" class='myfor'>
 
 
@@ -20,15 +24,15 @@
 <tr>
   <td>
     <div class="group">
-    <label class="label" for="datedebut">Date de début:</label>
-    <input class="input" type="date" id="datedebut" name="datedebut" formControlName="datedebut" [ngModel]="currentDate | date:'yyyy-MM-dd'" required>
+    <label class="label" for="datedebut" style="padding-left: 10px; padding-right: 1px;">Date de début:</label>
+    <input class="input2" type="date" id="datedebut" name="datedebut" formControlName="datedebut" [ngModel]="currentDate | date:'yyyy-MM-dd'" required>
     </div>
   </td>
 
   <td>
     <div class="group">
-    <label class="label" for="datefin">Date de fin:</label>
-    <input class="input" type="date" id="datefin" name="datefin" formControlName="datefin" required>
+    <label class="label" for="datefin" style="padding-left: 10px; padding-right: 1px;">Date de fin:</label>
+    <input class="input2" type="date" id="datefin" name="datefin" formControlName="datefin" required>
     </div>
   </td>
 </tr>
@@ -37,7 +41,7 @@
 <tr>
 
     <div class="group">
-       <label class="label" for="tjm">TJM:</label>
+       <label class="label" for="tjm" style="padding-left: 10px; padding-right: 1px;">TJM:</label>
        <input class="input" type="text" id="tjm" name="tjm" formControlName="tjm" required>
     </div>
 

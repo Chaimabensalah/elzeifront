@@ -126,7 +126,7 @@ body {
 	width: 80%;
 	color: #000000;
 	display: block;
-	margin-right: 50px;
+	margin-right: 70px;
 	margin-left: -20px; /* Adjust margin as needed */
 	margin: auto;
 	font-family: "HelveticaNeueLT Std Lt Cn", Sans-serif;
@@ -172,7 +172,7 @@ body {
     position: absolute; /* Set the position to absolute */
     bottom: -70x; /* Set the distance from the bottom */
     right: 250px; /* Set the distance from the right */
-    left: 29%;
+    left: 35%;
     font-family: "HelveticaNeueLT Std Lt Cn", Sans-serif;
   }
 
@@ -230,6 +230,17 @@ body {
 	background: rgba(216, 216, 216, 0.9);
 
   }
+  .gray-input2 {
+    margin: auto;
+    padding: 0px 2px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.527);
+    width: 200px;
+    margin-bottom: .3rem;
+    background: rgba(216, 216, 216, 0.9);
+
+    }
+
 
   /*section*/
 

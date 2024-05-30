@@ -1,7 +1,9 @@
 <body>
 
     <app-navigate></app-navigate>
-  <br>
+    <br>
+    <br>
+    
     <form [formGroup]="myForm" class='myfor' (ngSubmit)="updateAddress()">
       <div class="login-wrap1">
         <div class="login-html">
@@ -22,16 +24,27 @@
                           <input class="input"  type="text" name="nom" formControlName="nom" required>
                           </div>
                         </td>
-                      <td>
+                      <td style="padding-left: 13px; padding-right: 26px;">
                             <div class="group">
-                          <label class="label" for="dateNaiss">date Naissance:</label>
+                          <label class="label" for="dateNaiss">date de Naissance:</label>
                           <input class="input2"  type="date" name="dateNaiss" formControlName="dateNaiss" required >
                             </div>
                       </td>
                         </tr><br>
 
 
+                        <tr>
+                        <label  class="label" for="pays" style="padding-left: 10px; padding-right: 1px;">Pays:</label><br>
+                        <div class="countrys">
+                            <mat-select-country class="input" formControlName="pays" style="padding-left: 10px; padding-right: 1px;"
+                                                (onCountrySelected)="onCountrySelected($event)">
+                            </mat-select-country>
+                          </div>
+                          <tr>
 
+
+
+                            <tr>
                         <td>
                           <div class="group">
                               <label  class="label" for="address">Adresse:</label>
@@ -46,7 +59,9 @@
                               <input class="input" type="text" id="codePostal" name="codePostal" placeholder="Code-Postal"  formControlName="codePostal" required (input)="updateAddress()">
                           </td>
                           </div>
-                      </td><br>
+                      </td>
+                    </tr>
+                      <br>
 
 
 
@@ -69,13 +84,14 @@
                             <input class="input"  type="text" name="emploi" formControlName="emploi" required>
                           </div>
                         </td>
-                        </tr><br>
+                        </tr>
+                        <br>
 
 
                         <tr>
-                          <td>
+                          <td style="padding-left: 15px; padding-right: 27px;">
                           <div class="group">
-                        <label class="label" for="dateEntre">Date d'entrée:</label>
+                        <label class="label" for="dateEntre" >Date d'entrée:</label>
                          <input class="input2" type="date" name="dateEntre" formControlName="dateEntre" [ngModel]="currentDate | date:'yyyy-MM-dd'" required>
                         </div>
                       <br>
@@ -109,7 +125,7 @@
                           <td>
 
                           <div class="group">
-                             <label class="label" for="coefficient">coefficient:</label>
+                             <label class="label" for="coefficient">Coefficient:</label>
 
                             <ng-container *ngIf="coefficientOptions.length> 0; else coefInput">
                                 <select name="coefficient" formControlName="coefficient" class='custom-select'>
@@ -152,5 +168,6 @@
 
 
             </form>
+            <br>
             </body>
 

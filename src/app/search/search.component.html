@@ -38,18 +38,18 @@
 
         <tbody>
           <tr *ngFor="let salary of salaries" [class.selected]="selectedSalary === salary">
-            <td>{{ salary.prenom }}</td>
-            <td>{{ salary.nom }}</td>
-            <td>{{ salary.dateNaiss}}</td>
-            <td>{{ salary.adresse }}</td>
-            <td>{{ salary.pays }}</td>
-            <td>{{ salary.matricule }}</td>
-            <td>{{ salary.numSS }}</td>
-            <td>{{ salary.dateEntre }}</td>
-            <td>{{ salary.dateSortie }}</td>
-            <td>{{ salary.emploi }}</td>
-            <td>{{ salary.position }}</td>
-            <td>{{ salary.coefficient }}</td>
+            <td (click)="viewDetailssalarise(salary)">{{ salary.prenom }}</td>
+            <td (click)="viewDetailssalarise(salary)">{{ salary.nom }}</td>
+            <td (click)="viewDetailssalarise(salary)">{{ salary.dateNaiss}}</td>
+            <td (click)="viewDetailssalarise(salary)">{{ salary.adresse }}</td>
+            <td (click)="viewDetailssalarise(salary)">{{ salary.pays }}</td>
+            <td (click)="viewDetailssalarise(salary)">{{ salary.matricule }}</td>
+            <td (click)="viewDetailssalarise(salary)">{{ salary.numSS }}</td>
+            <td (click)="viewDetailssalarise(salary)">{{ salary.dateEntre }}</td>
+            <td (click)="viewDetailssalarise(salary)">{{ salary.dateSortie }}</td>
+            <td (click)="viewDetailssalarise(salary)">{{ salary.emploi }}</td>
+            <td (click)="viewDetailssalarise(salary)">{{ salary.position }}</td>
+            <td (click)="viewDetailssalarise(salary)">{{ salary.coefficient }}</td>
 
             <td class="button-container">
               <button (click)="deleteCompte(salary)" style="font-size:20px;color:blue">
@@ -71,7 +71,7 @@
 
 
 
-              <button (click)="viewDetails2(salary)" style="font-size:20px;color:blue">
+              <!--<button (click)="viewDetails2(salary)" style="font-size:20px;color:blue">
                 <svg class="svg-icon" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                   <g stroke="#00FF00" stroke-linecap="round" stroke-width="2">
                     <path d="M6 2h9l3 3v15a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2z"></path>
@@ -81,7 +81,7 @@
                     <path d="M9 17h.01"></path>
                   </g>
                 </svg>
-              </button>
+              </button>-->
 
 
 

@@ -57,6 +57,14 @@ export class ClientlistComponent implements OnInit {
 
 
 
+
+viewDetailsclient(client: Client): void {
+  this.router.navigate(['clientview', client.id]);
+}
+
+
+
+
   selectClient(client: Client): void { // Renamed selectClienty to selectClient for consistency
     this.selectedClient = client; // Renamed selectedSalary to selectedClient to reflect the entity
   }

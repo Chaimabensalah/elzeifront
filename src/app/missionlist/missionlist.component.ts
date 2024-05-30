@@ -47,6 +47,13 @@ export class MissionlistComponent  implements OnInit {
       }})
   }
 
+
+
+
+viewDetailsmission(mission: Mission): void {
+  this.router.navigate(['missionview', mission.id]);
+}
+
   selectMission(mission: Mission): void { // Renamed selectMissiony to selectMission for consistency
     this.selectedMission = mission; // Renamed selectedSalary to selectedMission to reflect the entity
 

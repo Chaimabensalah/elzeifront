@@ -94,15 +94,14 @@ export class MonthlyDataComponent {
 
         // Créer l'objet de données à envoyer au backend
         const bodyData = {
-          id: formData.id,
           salariesid: {
-            id: formData.salariesid,
+            id: this.selectedSalaries[0].id,
           },
           missionid: {
-            id: formData.missionid,
+            id: this.selectedMissionsalaries?.id,
           },
           craid: {
-            id: formData.craid,
+            id: this.selectedCRA?.id,
           },
           facture: formData.facture,
           autre: formData.autre,
@@ -112,10 +111,6 @@ export class MonthlyDataComponent {
           fraiskilo: formData.fraiskilo,
           chargesalarial: formData.chargesalarial,
           chargeannexe: formData.chargeannexe,
-
-
-
-
         };
         // Envoyer les données au backend
         console.log(bodyData);
@@ -130,6 +125,7 @@ export class MonthlyDataComponent {
           }
 
         );
+
       }
 
       fill() {
@@ -194,6 +190,7 @@ this.CRAService.getCRAByMissionId(res.id).subscribe((res:CRA[])=>{
   this.cras=res;
   this.selectedCRA = this.cras[0];
   this.loadpdf();
+
 });
 });
     }
@@ -210,6 +207,7 @@ loadpdf(){
         this.pdfssalaries=res[0];
         console.log(res);
         console.log(this.selectedSalaries?.matricule);
+
     },
     (error: any) => {
       console.error('Erreur lors du chargement des détails du simulateur', error);
@@ -219,26 +217,28 @@ loadpdf(){
 submitForm(): void {
   const tjm = this.selectedMissionsalaries?.tjm;
   const nbjour = this.selectedCRA?.nbjour;
-  const netpaye = this.myForm.get('netpaye')?.value;
+
+  const netpaye = this.pdfssalaries?.netpaye;
+  const chpatroniales = this.pdfssalaries?.chpatroniales;
+
   const fraisrepas = this.myForm.get('fraisrepas')?.value;
   const fraiskilo = this.myForm.get('fraiskilo')?.value;
   const autre = this.myForm.get('autre')?.value;
   const chargesalarial = this.myForm.get('chargesalarial')?.value;
-  const chpatroniales = this.myForm.get('chpatroniales')?.value;
 
   console.log(tjm);
 
 //les formules de ecrant1
 const result1: number = Number(tjm)*Number(nbjour);
-const valtotalpercu :  number = Number(netpaye)+Number(fraisrepas)+Number(fraiskilo)+Number(autre) ;
+const valtotalpercu :  number = parseFloat(netpaye)+Number(fraisrepas)+Number(fraiskilo)+Number(autre) ;
 const valcout :  number = Number(netpaye)+Number(fraisrepas)+Number(fraiskilo)+Number(autre)+Number(chargesalarial)+Number(chpatroniales) ;
 
-console.log(tjm);
-console.log(nbjour);
-console.log('valtotalpercu',valtotalpercu);
-console.log('valcout',valcout);
-console.log('valcout',result1);
-
+console.log('netpaye',parseFloat(netpaye));
+console.log(fraisrepas);
+console.log(fraiskilo);
+console.log('autre',autre);
+console.log('chargesalarial',chargesalarial);
+console.log('chpatroniales',chpatroniales);
 
 
 

@@ -1,0 +1,274 @@
+
+
+
+
+    <body>
+
+      <app-navigate></app-navigate>
+      <br>
+
+      <form [formGroup]="myForm" class='myfor'>
+        <div class="login-wrap1">
+          <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Salarie</label >
+            <div class="login-form">
+
+
+                          <tr>
+                            <td>
+                            <div class="group">
+                            <label class="label" for="prenom">Prénom:</label>
+                            <input  class="input" type="text" name="prenom" formControlName="prenom" [value]="selectedSalaries?.prenom" required readonly readonly>
+                            </div>
+                          </td>
+                        <td>
+                            <div class="group">
+                            <label class="label" for="nom">Nom:</label>
+                            <input class="input"  type="text" name="nom" formControlName="nom" [value]="selectedSalaries?.nom" required readonly>
+                            </div>
+                          </td>
+                        <td>
+                              <div class="group">
+                            <label class="label" for="dateNaiss">dateNaiss:</label>
+                            <input class="input"  type="date" name="dateNaiss" formControlName="dateNaiss" [value]="selectedSalaries?.dateNaiss" required readonly readonly>
+                              </div>
+                        </td>
+                          </tr>
+
+
+
+                          <!--<label class="label" for="pays">Pays:</label>-->
+
+                              <!-- <div class="countrys">
+                                <mat-select-country class="input"   (onCountrySelected)="onCountrySelected($event)">
+                                </mat-select-country>
+                              </div> -->
+
+
+                              <!--<mat-form-field appearance="fill" >
+                                <mat-label>Country</mat-label>
+                                <mat-select [value]="selectedCountry"  (change)="onCountrySelected(selectedCountry)">
+                                  <mat-option *ngFor="let country of countries" [value]="country.value">
+                                    {{ country.viewValue }}
+                                  </mat-option >
+                                </mat-select>
+                              </mat-form-field>-->
+
+
+                              <tr>
+                                <label  class="label" for="pays" style="padding-left: 10px; padding-right: 1px;">Pays:</label><br>
+                                <mat-select-country class="input" style="padding-left: 10px; padding-right: 1px;" (onCountrySelected)="onCountrySelected($event)" >
+                                </mat-select-country>
+                                <br>
+                              </tr>
+
+
+
+
+
+
+                        <tr>
+                          <div class="group">
+                        <label class="label" for="adresse" >adresse</label>
+                        <input class="input"  type="text" name="adresse" formControlName="adresse" [value]="selectedSalaries?.adresse" required readonly readonly >
+                        </div><br>
+                      </tr>
+
+                          <tr>
+                            <td>
+                            <div class="group">
+                            <label class="label" for="matricule">Matricule:</label>
+                            <input class="input"  type="text" name="matricule" formControlName="matricule" [value]="selectedSalaries?.matricule" required readonly readonly>
+                            </div>
+                          </td>
+                          <td>
+                              <div class="group">
+                            <label class="label" for="numSS">NumSS:</label>
+                            <input class="input"  type="text" name="numSS" formControlName="numSS" [value]="selectedSalaries?.numSS" required readonly>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="group">
+                                  <label class="label" for="emploi">Emploi:</label>
+                                  <input class="input"  type="text" name="emploi" formControlName="emploi" [value]="selectedSalaries?.emploi" required readonly>
+                                </div>
+                              </td>
+                          </tr>
+
+                          <tr>
+                            <td style="padding-left: 15px; padding-right: 27px;">
+                            <div class="group">
+                          <label class="label" for="dateEntre">Date d'entrée:</label>
+                          <input class="input" type="date" name="dateEntre" formControlName="dateEntre" [value]="selectedSalaries?.dateEntre" required readonly>
+                          </div>
+                        </td>
+                      <td>
+                            <div class="group">
+                            <label class="label" for="dateSortie">Date de sortie:</label>
+                            <input class="input"  type="date" name="dateSortie" formControlName="dateSortie" [value]="selectedSalaries?.dateSortie" required readonly>
+                          </div>
+                        </td>
+                          </tr>
+
+
+
+                          <tr>
+                            <td>
+                              <div class="group">
+                            <label class="label" for="position">Position:</label>
+
+                                <input class="input"  type="text" name="position" formControlName="position" [value]="selectedSalaries?.position" required
+                                    (input)="updateCoefficient($event)" readonly>
+
+
+                          </div>
+                        </td>
+                            <td>
+                            <div class="group">
+                          <label  class="label" for="coefficient">coefficient:</label>
+
+                              <ng-container *ngIf="coefficientOptions.length> 0; else coefInput">
+                                  <select name="coefficient" formControlName="coefficient" class='custom-select'>
+                                      <option *ngFor="let option of coefficientOptions" [value]="option">{{ option }}</option>
+                                  </select>
+                              </ng-container>
+                              <ng-template #coefInput>
+                                  <input class="input"  type="text" name="coefficient" formControlName="coefficient" [value]="selectedSalaries?.coefficient" required readonly>
+                              </ng-template>
+
+                            </div>
+                          </td>
+                          <td>
+                            <div class="group">
+                          <label class="label" for="statut">Statut:</label>
+
+                            <textarea class="input"  type="text" name="statut" formControlName="statut" autocomplete="off" readonly  [value]="selectedSalaries?.statut" required readonly></textarea>
+                            <span *ngIf="myForm.get('statut')?.errors?.['paragraph']" class="paragraph">{{ myForm.get('statut')?.errors?.['paragraph'] }}</span>
+
+
+                            </div>
+                          </td>
+
+                          </tr>
+
+
+
+
+
+                    </div>
+                  </div>
+
+
+
+                </div>
+
+
+              </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <section>
+
+
+
+
+
+                <!--for demo wrap-->
+                <h1>Historique des Fiches de paie</h1>
+                <div class="tbl-header">
+                  <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                      <tr>
+                        <th>Matricule</th>
+                        <th>Periode</th>
+                        <th>NumSS</th>
+                        <th>Chpatroniales</th>
+                        <th>Nom</th>
+                        <th>Emploi</th>
+                        <th>Statut</th>
+                        <th>Coefficient</th>
+                        <th>Total des cotisations</th>
+                        <th>Net a payer avant impot</th>
+                        <th>Salairebrut</th>
+                        <th>Netpaye</th>
+
+
+
+
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr *ngFor="let f of pdfs">
+                        <td>{{ f.matricule }}</td>
+                        <td>{{ f.periode }}</td>
+                        <td>{{ f.numSS }}</td>
+                        <td>{{ f.chpatroniales }}</td>
+                        <td>{{ f.nom }}</td>
+                        <td>{{ f.emploi }}</td>
+                        <td>{{ f.statut }}</td>
+                        <td>{{ f.coefficient }}</td>
+                        <td>{{ f.totaldescotisationsetcontributions }}</td>
+                        <td>{{ f.netapayeravantimpotsurlerevenu }}</td>
+                        <td>{{ f.salairebrut }}</td>
+                        <td>{{ f.netpaye }}</td>
+
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+
+              </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </body>
+

@@ -1,5 +1,4 @@
 body {
-	/*background-image: radial-gradient(at 300px 300px, rgba(60, 201, 95, 0.01) 0, #E9FFDB 80%), url('../../assets/Client2.jpg');*/
 	animation: animate-bg 70s infinite linear;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -44,25 +43,28 @@ body {
 	text-decoration: none;
   }
 
+
   /*container*/
   .login-html {
-    top: 70%;
-    right: 0%;
-    width: 270%;
-    height: 220%;
-    bottom: 20%;
-    position: relative;
-    padding: 65px 90px 90px 90px;
-    border-radius: 0px;
-    margin: auto;
-    max-width: 800px;
-    min-height: 570px;
-    background-size: 100%;
-    background-color: rgba(255, 255, 255, 0.1); /* Applique une couleur de fond transparente */
-    box-shadow: 0px 106px 42px rgba(0, 0, 0, 0.01),
-    0px 59px 36px rgba(0, 0, 0, 0.05), 0px 26px 26px rgba(0, 0, 0, 0.09),
-    0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+	top: 70%;
+	right: 0%;
+	width: 270%;
+	height: 220%;
+	bottom: 20%;
+	position: relative;
+	padding: 65px 90px 90px 90px;
+	border-radius: 0px;
+	margin: auto;
+	max-width: 800px;
+	min-height: 600px;
+	background-size: 100%;
+	background-color: rgba(255, 255, 255, 0.1); /* Applique une couleur de fond transparente */
+  box-shadow: 0px 106px 42px rgba(0, 0, 0, 0.01),
+  0px 59px 36px rgba(0, 0, 0, 0.05), 0px 26px 26px rgba(0, 0, 0, 0.09),
+  0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
   }
+
+
 
   .login-html .sign-in-htm,
   .login-html .sign-up-htm {
@@ -101,7 +103,7 @@ body {
   .login-html .sign-up:checked + .tab {
 	color: #000000;
 	border-color: #7ed957;
-width: 20%;
+  width: 20%;
   }
 
   .login-form {
@@ -126,6 +128,7 @@ width: 20%;
 	margin-left: -20px; /* Adjust margin as needed */
 	margin: auto;
 	font-family: "HelveticaNeueLT Std Lt Cn", Sans-serif;
+  size: 10%;
 
   }
 
@@ -139,9 +142,6 @@ width: 20%;
 	font-family: "HelveticaNeueLT Std Lt Cn", Sans-serif;
   }
 
-  .login-form .group input[data-type="password"] {
-	-webkit-text-security: circle;
-  }
 
   .login-form .group .label {
 	color: #000000;
@@ -152,8 +152,8 @@ width: 20%;
   margin-bottom: .3rem;
   }
 
-   /*button*/
-   button {
+  /*button*/
+  button {
     font-family: monospace;
     background-color: #7ed957;
     color: #000000;
@@ -177,6 +177,9 @@ width: 20%;
     box-shadow: 0 0 0 5px #71C34E;
     color: #000000;
   }
+
+
+
   .login-form .group label .icon {
 	width: 15px;
 	height: 15px;
@@ -194,7 +197,7 @@ width: 20%;
   }
 
   .login-form .group label .icon:after {
-	top: 600px;
+	top: 200px;
 	right: 0;
 	transform: scale(0) rotate(0);
   }
@@ -206,6 +209,7 @@ width: 20%;
   .login-html .sign-up:checked + .tab + .login-form .sign-up-htm {
 	transform: rotate(0);
   }
+
 
   .hr {
 	height: 2px;
@@ -220,9 +224,6 @@ width: 20%;
 	border-radius: 10px;
 	background: rgba(255, 255, 255, 0.527);
 	width: 500px;
-  margin-bottom: .3rem;
-	background: rgba(216, 216, 216, 0.9);
-
 
   }
 
@@ -236,18 +237,190 @@ width: 20%;
 	border: 1px solid rgba(255, 255, 255, .2); /* Add a border */
 	border-radius: 5px; /* Add some border radius */
 	background-color: rgba(255, 255, 255, .2); /* Set the background color */
-	background: rgba(216, 216, 216, 0.9);
-
   }
 
   /* Style for the options */
   .form-input option {
 	font-size: 14px; /* Set the font size of options */
 	padding: 5px 10px; /* Add padding to options */
-
   }
 
   /* Optional hover effect for options */
   .form-input option:hover {
 	background-color: rgba(255, 255, 255, .2); /* Change background color on hover */
   }
+
+
+/*date*/
+.input2[type="date"] {
+  width: 178px; /* Définissez la largeur souhaitée */
+  color: #000000;
+  margin-right: 50px;
+  margin-left: -20px; /* Ajustez les marges au besoin */
+  margin: auto;
+  font-family: "HelveticaNeueLT Std Lt Cn", Sans-serif;
+  background: rgba(216, 216, 216, 0.9);
+  border: none;
+  padding: 14.2px 20px; /* Ajustez le rembourrage au besoin */
+  border-radius: 5px;
+  background: rgba(216, 216, 216, 0.5);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  h1{
+    font-size: 25px;
+    color: #2c2c2c;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 15px;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  table {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse; /* Ajouté pour supprimer la ligne de séparation */
+    font-family: "Montserrat", sans-serif;
+  }
+  /*transparance de tableau*/
+  .tbl-header {
+    background-color: rgba(58, 202, 44, 0.1);
+    grid-gap: 20px;
+    background:rgba(255, 255, 255, 0.1);
+
+    font-family: "Montserrat", sans-serif;
+
+  }
+
+  .tbl-content { /*transparance*/
+    height: 300;
+    overflow-x: auto;
+    margin-top: 0px;
+    font-family: "Montserrat", sans-serif;
+
+  }
+
+  th {
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    color: rgb(29, 32, 29);
+    text-transform: uppercase;
+    background-color: #7ed957;
+
+  }
+
+  td {
+    padding: 15px;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: #000000;
+
+  }
+
+
+
+
+
+
+  tbody { /*selectioner une ligne de la table*/
+    tr {
+      &:hover {
+        background-color: rgba(222, 236, 222, 0.6);
+
+      }
+    }
+    td {
+      position: relative;
+      &:hover {
+        &:before {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: -9999px;
+          bottom: -9999px;
+          background-color: rgba(255,255,255,0.2);
+          z-index: -1;
+
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* demo styles */
+
+  @keyframes myAnimation {
+    100% { background-position: 0% 50%; } /* Start from the left side */
+    100% { background-position: 100% 50%; } /* Move to the right side */
+  }
+  body {
+  /*  background-image: radial-gradient(at 300px 300px, rgba(60, 201, 95, 0.5) 0, #E9FFDB 70%), url('C:/Users/DELL/OneDrive/Desktop/ELZI/elzeifront/src/assets/final.jpg');*/
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keep the background fixed while scrolling */
+    background-size: cover;
+    height: 100vh; /* Set height to 100% of viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    animation: myAnimation 30s linear infinite alternate;
+  }
+  section{
+    margin: 50px;
+  }
+
+
+
+
+
+
+
+
